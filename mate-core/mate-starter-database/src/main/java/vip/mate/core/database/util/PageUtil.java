@@ -11,7 +11,7 @@ import vip.mate.core.database.entity.Search;
  */
 public class PageUtil {
 
-	public static <T> IPage<T> getPage(Search search) {
-		return new Page<T>(search.getCurrent(), search.getSize());
-	}
+    public static <T> IPage<T> getPage(Search search) {
+        return new Page<T>(search.getCurrent(), search.getSize());
+    }
 }

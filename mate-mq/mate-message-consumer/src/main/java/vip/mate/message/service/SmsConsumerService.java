@@ -15,15 +15,15 @@ import java.util.function.Consumer;
 @Service
 public class SmsConsumerService {
 
-	/**
-	 * 函数式编辑接收消息
-	 *
-	 * @return
-	 */
-	@Bean
-	public Consumer<String> sms() {
-		return message -> {
-			log.info("接收的普通消息为：{}", message);
-		};
-	}
+    /**
+     * 函数式编辑接收消息
+     *
+     * @return
+     */
+    @Bean
+    public Consumer<String> sms() {
+        return message -> {
+            log.info("接收的普通消息为：{}", message);
+        };
+    }
 }

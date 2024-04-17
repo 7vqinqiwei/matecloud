@@ -36,80 +36,80 @@ import java.time.LocalDateTime;
 @Schema(name = "SysAttachment对象", description = "附件表")
 public class SysAttachment extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	* 存储ID
-	*/
-	@Schema(description = "存储ID")
-	private Long storageId;
-	/**
-	* 组ID
-	*/
-	@Schema(description = "组ID")
-	private Integer attachmentGroupId;
-	/**
-	* 文件名称
-	*/
-	@Schema(description = "文件名称")
-	private String name;
-	/**
-	* 文件大小
-	*/
-	@Schema(description = "文件大小")
-	private long size;
-	/**
-	* 文件地址
-	*/
-	@Schema(description = "文件地址")
-	private String url;
+    /**
+     * 存储ID
+     */
+    @Schema(description = "存储ID")
+    private Long storageId;
+    /**
+     * 组ID
+     */
+    @Schema(description = "组ID")
+    private Integer attachmentGroupId;
+    /**
+     * 文件名称
+     */
+    @Schema(description = "文件名称")
+    private String name;
+    /**
+     * 文件大小
+     */
+    @Schema(description = "文件大小")
+    private long size;
+    /**
+     * 文件地址
+     */
+    @Schema(description = "文件地址")
+    private String url;
 
-	/**
-	 * 上传文件名
-	 */
-	@Schema(description = "上传文件名")
-	private String fileName;
+    /**
+     * 上传文件名
+     */
+    @Schema(description = "上传文件名")
+    private String fileName;
 
-	/**
-	* 缩略图地址
-	*/
-	@Schema(description = "缩略图地址")
-	private String thumbUrl;
-	/**
-	* 类型
-	*/
-	@Schema(description = "类型")
-	private Integer type;
-	/**
-	* 创建人
-	*/
-	@Schema(description = "创建人")
-	private String createBy;
-	/**
-	* 更新人
-	*/
-	@Schema(description = "更新人")
-	private String updateBy;
-	/**
-	* 创建时间
-	*/
-	@Schema(description = "创建时间")
-	private LocalDateTime createTime;
-	/**
-	* 修改时间
-	*/
-	@Schema(description = "修改时间")
-	private LocalDateTime updateTime;
-	/**
-	* 删除标识
-	*/
-	@Schema(description = "删除标识")
-	private String isDeleted;
-	/**
-	* 是否加入回收站 0.否|1.是
-	*/
-	@Schema(description = "是否加入回收站 0.否|1.是")
-	private Boolean isRecycle;
+    /**
+     * 缩略图地址
+     */
+    @Schema(description = "缩略图地址")
+    private String thumbUrl;
+    /**
+     * 类型
+     */
+    @Schema(description = "类型")
+    private Integer type;
+    /**
+     * 创建人
+     */
+    @Schema(description = "创建人")
+    private String createBy;
+    /**
+     * 更新人
+     */
+    @Schema(description = "更新人")
+    private String updateBy;
+    /**
+     * 创建时间
+     */
+    @Schema(description = "创建时间")
+    private LocalDateTime createTime;
+    /**
+     * 修改时间
+     */
+    @Schema(description = "修改时间")
+    private LocalDateTime updateTime;
+    /**
+     * 删除标识
+     */
+    @Schema(description = "删除标识")
+    private String isDeleted;
+    /**
+     * 是否加入回收站 0.否|1.是
+     */
+    @Schema(description = "是否加入回收站 0.否|1.是")
+    private Boolean isRecycle;
 
 
 }

@@ -55,8 +55,6 @@
   }
   ```
 
-
-
 ## 注入原理
 
 - 添加注解 @EnableAutoDataSourceProxy 配置自动代理数据源
@@ -76,7 +74,7 @@
   }
   ```
 
-  @Import 引入配置类 AutoDataSourceProxyRegistrar.class  配置了代理数据源对象
+  @Import 引入配置类 AutoDataSourceProxyRegistrar.class 配置了代理数据源对象
 
   ```java
   

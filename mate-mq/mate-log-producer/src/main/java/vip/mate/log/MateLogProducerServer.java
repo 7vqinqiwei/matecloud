@@ -8,10 +8,11 @@ import vip.mate.core.feign.annotation.EnableMateFeign;
 
 /**
  * 日志消息生产者启动类
+ *
  * @author pangu
  */
 @EnableMateFeign
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class MateLogProducerServer {
 
     public static void main(String[] args) {

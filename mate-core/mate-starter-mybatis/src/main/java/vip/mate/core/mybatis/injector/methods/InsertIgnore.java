@@ -26,7 +26,7 @@ import vip.mate.core.mybatis.injector.MateSqlMethod;
  */
 public class InsertIgnore extends AbstractInsertMethod {
 
-	public InsertIgnore() {
-		super(MateSqlMethod.INSERT_IGNORE_ONE);
-	}
+    public InsertIgnore() {
+        super(MateSqlMethod.INSERT_IGNORE_ONE);
+    }
 }

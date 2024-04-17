@@ -13,15 +13,15 @@ import vip.mate.core.lock.props.RedissonProperties;
 @AllArgsConstructor
 public class RedissonConfigContext {
 
-	private final RedissonConfigStrategy redissonConfigStrategy;
+    private final RedissonConfigStrategy redissonConfigStrategy;
 
-	/**
-	 * 上下文根据构造中传入的具体策略产出真实的Redisson的Config
-	 *
-	 * @param redissonProperties redisson配置
-	 * @return Config
-	 */
-	public Config createRedissonConfig(RedissonProperties redissonProperties) {
-		return this.redissonConfigStrategy.createRedissonConfig(redissonProperties);
-	}
+    /**
+     * 上下文根据构造中传入的具体策略产出真实的Redisson的Config
+     *
+     * @param redissonProperties redisson配置
+     * @return Config
+     */
+    public Config createRedissonConfig(RedissonProperties redissonProperties) {
+        return this.redissonConfigStrategy.createRedissonConfig(redissonProperties);
+    }
 }

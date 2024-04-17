@@ -11,11 +11,11 @@ import vip.mate.core.lock.props.RedissonProperties;
  */
 public interface RedissonConfigStrategy {
 
-	/**
-	 * 根据不同的Redis配置策略创建对应的Config
-	 *
-	 * @param redissonProperties redisson配置
-	 * @return Config
-	 */
-	Config createRedissonConfig(RedissonProperties redissonProperties);
+    /**
+     * 根据不同的Redis配置策略创建对应的Config
+     *
+     * @param redissonProperties redisson配置
+     * @return Config
+     */
+    Config createRedissonConfig(RedissonProperties redissonProperties);
 }

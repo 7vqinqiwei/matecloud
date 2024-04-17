@@ -16,15 +16,15 @@
  */
 package vip.mate.code.service.impl;
 
-import vip.mate.core.database.entity.Search;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
 import vip.mate.code.entity.Column;
 import vip.mate.code.mapper.ColumnMapper;
 import vip.mate.code.service.IColumnService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import vip.mate.core.common.util.StringUtil;
+import vip.mate.core.database.entity.Search;
 import vip.mate.core.database.util.PageUtil;
 
 /**
@@ -38,16 +38,16 @@ import vip.mate.core.database.util.PageUtil;
 @Service
 public class ColumnServiceImpl extends ServiceImpl<ColumnMapper, Column> implements IColumnService {
 
-		@Override
-		public IPage<Column> listPage(Search search) {
-			LambdaQueryWrapper<Column> queryWrapper = new LambdaQueryWrapper<>();
-			if (StringUtil.isNotBlank(search.getStartDate())) {
-				queryWrapper.between(Column::getCreateTime, search.getStartDate(), search.getEndDate());
-			}
-			if (StringUtil.isNotBlank(search.getKeyword())) {
-				queryWrapper.like(Column::getId, search.getKeyword());
-			}
-			queryWrapper.orderByDesc(Column::getCreateTime);
-			return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
-		}
+    @Override
+    public IPage<Column> listPage(Search search) {
+        LambdaQueryWrapper<Column> queryWrapper = new LambdaQueryWrapper<>();
+        if (StringUtil.isNotBlank(search.getStartDate())) {
+            queryWrapper.between(Column::getCreateTime, search.getStartDate(), search.getEndDate());
+        }
+        if (StringUtil.isNotBlank(search.getKeyword())) {
+            queryWrapper.like(Column::getId, search.getKeyword());
+        }
+        queryWrapper.orderByDesc(Column::getCreateTime);
+        return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
+    }
 }

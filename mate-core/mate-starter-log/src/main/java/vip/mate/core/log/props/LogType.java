@@ -2,6 +2,7 @@ package vip.mate.core.log.props;
 
 /**
  * 记录日志类型
+ *
  * @author xuzhanfu
  * @date 2020-9-5
  */

@@ -20,24 +20,24 @@ import javax.annotation.PreDestroy;
 @AllArgsConstructor
 public class ConfigCache {
 
-	private final ISysConfigService sysConfigService;
+    private final ISysConfigService sysConfigService;
 
-	@PostConstruct
-	public void init() {
-		sysConfigService.clearOss();
-		//加载OSS配置文件
-		sysConfigService.getOssProperties();
-	}
+    @PostConstruct
+    public void init() {
+        sysConfigService.clearOss();
+        //加载OSS配置文件
+        sysConfigService.getOssProperties();
+    }
 
-	@PreDestroy
-	public void destroy() {
-		//系统运行结束
-		sysConfigService.clearOss();
-	}
+    @PreDestroy
+    public void destroy() {
+        //系统运行结束
+        sysConfigService.clearOss();
+    }
 
-	@Scheduled(cron = "0 0 0/2 * * ?")
-	public void taskInit() {
-		//每2小时执行一次缓存
-		init();
-	}
+    @Scheduled(cron = "0 0 0/2 * * ?")
+    public void taskInit() {
+        //每2小时执行一次缓存
+        init();
+    }
 }

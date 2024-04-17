@@ -4,6 +4,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 /**
  * 验证码接口类
+ *
  * @author pangu
  * @since 2020-7-21
  */

@@ -18,21 +18,21 @@ import java.math.BigInteger;
 @AutoConfiguration
 public class JacksonConfiguration {
 
-	/**
-	 * Jackson全局转化long类型为String
-	 * 解决jackson序列化时传入前端Long类型缺失精度问题
-	 */
-	@Bean
-	public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
-		Jackson2ObjectMapperBuilderCustomizer cunstomizer = new Jackson2ObjectMapperBuilderCustomizer() {
-			@Override
-			public void customize(Jackson2ObjectMapperBuilder jacksonObjectMapperBuilder) {
-				jacksonObjectMapperBuilder.serializerByType(BigInteger.class, ToStringSerializer.instance);
-				jacksonObjectMapperBuilder.serializerByType(BigDecimal.class, ToStringSerializer.instance);
-				jacksonObjectMapperBuilder.serializerByType(Long.class, ToStringSerializer.instance);
-				// jacksonObjectMapperBuilder.serializerByType(Long.TYPE, ToStringSerializer.instance);
-			}
-		};
-		return cunstomizer;
-	}
+    /**
+     * Jackson全局转化long类型为String
+     * 解决jackson序列化时传入前端Long类型缺失精度问题
+     */
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
+        Jackson2ObjectMapperBuilderCustomizer cunstomizer = new Jackson2ObjectMapperBuilderCustomizer() {
+            @Override
+            public void customize(Jackson2ObjectMapperBuilder jacksonObjectMapperBuilder) {
+                jacksonObjectMapperBuilder.serializerByType(BigInteger.class, ToStringSerializer.instance);
+                jacksonObjectMapperBuilder.serializerByType(BigDecimal.class, ToStringSerializer.instance);
+                jacksonObjectMapperBuilder.serializerByType(Long.class, ToStringSerializer.instance);
+                // jacksonObjectMapperBuilder.serializerByType(Long.TYPE, ToStringSerializer.instance);
+            }
+        };
+        return cunstomizer;
+    }
 }

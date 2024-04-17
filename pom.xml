@@ -115,7 +115,9 @@
                         <env>
                             <JAVA_OPTS>${docker.java.opts}</JAVA_OPTS>
                         </env>
-                        <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar /${project.build.finalName}.jar"]</entryPoint>
+                        <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar
+                            /${project.build.finalName}.jar"]
+                        </entryPoint>
                         <resources>
                             <resource>
                                 <targetPath>/</targetPath>
@@ -139,7 +141,7 @@
                                     <!--suppress UnresolvedMavenProperty -->
                                     <copy overwrite="true"
                                           tofile="${session.executionRootDirectory}/target/${project.artifactId}.jar"
-                                          file="${project.build.directory}/${project.artifactId}.jar" />
+                                          file="${project.build.directory}/${project.artifactId}.jar"/>
                                 </tasks>
                             </configuration>
                         </execution>

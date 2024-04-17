@@ -11,6 +11,7 @@ import java.util.Set;
 
 /**
  * 重构{@link LogbackMDCAdapter}类，搭配TransmittableThreadLocal实现父子线程之间的数据传递
+ *
  * @author pangu
  * @date 2020-9-9
  */

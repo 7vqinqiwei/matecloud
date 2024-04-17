@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class AllDataScope implements AbstractDataScopeHandler {
 
-	private final ISysDepartService sysDepartService;
+    private final ISysDepartService sysDepartService;
 
-	@Override
-	public List<Long> getDeptIds(RoleDTO roleDto, DataScopeTypeEnum dataScopeTypeEnum) {
-		List<SysDepart> sysDeparts = sysDepartService.list();
-		return sysDeparts.stream().map(SysDepart::getId).collect(Collectors.toList());
-	}
+    @Override
+    public List<Long> getDeptIds(RoleDTO roleDto, DataScopeTypeEnum dataScopeTypeEnum) {
+        List<SysDepart> sysDeparts = sysDepartService.list();
+        return sysDeparts.stream().map(SysDepart::getId).collect(Collectors.toList());
+    }
 
 
 }

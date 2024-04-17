@@ -5,7 +5,7 @@ routes:
       - name: Path
         args:
           _genkey_0: /mate-uaa/**
-    filters: []
+    filters: [ ]
     uri: lb://mate-uaa
     order: 0
   # mate-system
@@ -31,7 +31,7 @@ routes:
       - name: Path
         args:
           _genkey_0: /mate-component/**
-    filters: []
+    filters: [ ]
     uri: lb://mate-component
     order: 0
   # mate-code
@@ -40,6 +40,6 @@ routes:
       - name: Path
         args:
           _genkey_0: /mate-code/**
-    filters: []
+    filters: [ ]
     uri: lb://mate-code
     order: 0

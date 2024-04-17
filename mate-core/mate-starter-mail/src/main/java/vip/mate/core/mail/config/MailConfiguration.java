@@ -21,15 +21,15 @@ import javax.annotation.Resource;
 @AutoConfigureAfter(MailSenderAutoConfiguration.class)
 public class MailConfiguration {
 
-	@Resource
-	private JavaMailSender mailSender;
+    @Resource
+    private JavaMailSender mailSender;
 
-	@Resource
-	private MailProperties mailProperties;
+    @Resource
+    private MailProperties mailProperties;
 
-	@Bean
-	@ConditionalOnBean({MailProperties.class, JavaMailSender.class})
-	public MailTemplate mailTemplate() {
-		return new JavaMailTemplate(mailSender,mailProperties);
-	}
+    @Bean
+    @ConditionalOnBean({MailProperties.class, JavaMailSender.class})
+    public MailTemplate mailTemplate() {
+        return new JavaMailTemplate(mailSender, mailProperties);
+    }
 }

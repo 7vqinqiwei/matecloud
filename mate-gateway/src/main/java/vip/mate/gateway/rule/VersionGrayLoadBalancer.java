@@ -25,41 +25,41 @@ import java.util.Map;
 @Slf4j
 @AllArgsConstructor
 public class VersionGrayLoadBalancer implements GrayLoadBalancer {
-	private DiscoveryClient discoveryClient;
+    private DiscoveryClient discoveryClient;
 
 
-	/**
-	 * 根据serviceId 筛选可用服务
-	 *
-	 * @param serviceId 服务ID
-	 * @param request   当前请求
-	 * @return
-	 */
-	@Override
-	public ServiceInstance choose(String serviceId, ServerHttpRequest request) {
-		List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
+    /**
+     * 根据serviceId 筛选可用服务
+     *
+     * @param serviceId 服务ID
+     * @param request   当前请求
+     * @return
+     */
+    @Override
+    public ServiceInstance choose(String serviceId, ServerHttpRequest request) {
+        List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
 
-		//注册中心无实例 抛出异常
-		if (CollUtil.isEmpty(instances)) {
-			log.warn("No instance available for {}", serviceId);
-			throw new NotFoundException("No instance available for " + serviceId);
-		}
+        //注册中心无实例 抛出异常
+        if (CollUtil.isEmpty(instances)) {
+            log.warn("No instance available for {}", serviceId);
+            throw new NotFoundException("No instance available for " + serviceId);
+        }
 
-		// 获取请求version，无则随机返回可用实例
-		String reqVersion = request.getHeaders().getFirst(MateConstant.VERSION);
-		if (StrUtil.isBlank(reqVersion)) {
-			return instances.get(RandomUtil.randomInt(instances.size()));
-		}
+        // 获取请求version，无则随机返回可用实例
+        String reqVersion = request.getHeaders().getFirst(MateConstant.VERSION);
+        if (StrUtil.isBlank(reqVersion)) {
+            return instances.get(RandomUtil.randomInt(instances.size()));
+        }
 
-		// 遍历可以实例元数据，若匹配则返回此实例
-		for (ServiceInstance instance : instances) {
-			Map<String, String> metadata = instance.getMetadata();
-			String targetVersion = MapUtil.getStr(metadata, MateConstant.VERSION);
-			if (reqVersion.equalsIgnoreCase(targetVersion)) {
-				log.debug("gray requst match success :{} {}", reqVersion, instance);
-				return instance;
-			}
-		}
-		return instances.get(RandomUtil.randomInt(instances.size()));
-	}
+        // 遍历可以实例元数据，若匹配则返回此实例
+        for (ServiceInstance instance : instances) {
+            Map<String, String> metadata = instance.getMetadata();
+            String targetVersion = MapUtil.getStr(metadata, MateConstant.VERSION);
+            if (reqVersion.equalsIgnoreCase(targetVersion)) {
+                log.debug("gray requst match success :{} {}", reqVersion, instance);
+                return instance;
+            }
+        }
+        return instances.get(RandomUtil.randomInt(instances.size()));
+    }
 }

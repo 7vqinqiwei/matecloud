@@ -42,11 +42,11 @@
             <groupId>org.springframework.security.oauth.boot</groupId>
             <artifactId>spring-security-oauth2-autoconfigure</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.taobao</groupId>-->
-<!--            <artifactId>taobao-sdk</artifactId>-->
-<!--            <version>20200415</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.taobao</groupId>-->
+        <!--            <artifactId>taobao-sdk</artifactId>-->
+        <!--            <version>20200415</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -89,7 +89,9 @@
                     <env>
                         <JAVA_OPTS>${docker.java.opts}</JAVA_OPTS>
                     </env>
-                    <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar /${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar
+                        /${project.build.finalName}.jar"]
+                    </entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>

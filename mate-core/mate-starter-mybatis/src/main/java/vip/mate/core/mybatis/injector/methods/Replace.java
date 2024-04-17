@@ -29,8 +29,8 @@ import vip.mate.core.mybatis.injector.MateSqlMethod;
  */
 public class Replace extends AbstractInsertMethod {
 
-	public Replace() {
-		super(MateSqlMethod.REPLACE_ONE);
-	}
+    public Replace() {
+        super(MateSqlMethod.REPLACE_ONE);
+    }
 }
 

@@ -1,5 +1,6 @@
 package vip.mate.system.aspect;
 
+import com.alibaba.cola.biz.exception.SysLimitException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
-import vip.mate.core.common.exception.PreviewException;
 import vip.mate.core.common.util.RequestHolder;
 import vip.mate.core.common.util.TraceUtil;
 
@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 演示环境拦截器
+ *
  * @author pangu
  */
 @Slf4j
@@ -38,9 +39,9 @@ public class PreviewAspect {
         //　获取request
         HttpServletRequest request = RequestHolder.getHttpServletRequest();
         if (StringUtils.equalsIgnoreCase(request.getMethod(), HttpMethod.POST.name()) && isPreview
-        && !(antPathMatcher.match(request.getRequestURI(), "/provider/log/set"))) {
+                && !(antPathMatcher.match(request.getRequestURI(), "/provider/log/set"))) {
             log.error("演示环境不能操作！");
-            throw new PreviewException("演示环境不能操作！");
+            throw new SysLimitException("演示环境不能操作！");
         }
         log.error("Request: url:{}", request.getRequestURI());
         TraceUtil.mdcTraceId(TraceUtil.getTraceId(request));

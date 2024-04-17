@@ -14,8 +14,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "seata")
 public class SeataProperties {
 
-  private String applicationId;
+    private String applicationId;
 
-  private String txServiceGroup;
+    private String txServiceGroup;
 
 }

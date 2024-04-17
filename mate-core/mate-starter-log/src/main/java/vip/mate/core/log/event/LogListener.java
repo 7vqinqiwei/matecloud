@@ -12,6 +12,7 @@ import vip.mate.core.log.props.LogType;
 
 /**
  * 注解形式，异步监听事件
+ *
  * @author pangu 7333791@qq.com
  * @since 2020-7-15
  */
@@ -21,9 +22,11 @@ public class LogListener {
     private ISysLogProvider sysLogProvider;
     private ICommonLogProvider commonLogProvider;
     private LogProperties logProperties;
-    public LogListener(){
+
+    public LogListener() {
 
     }
+
     public LogListener(ISysLogProvider sysLogProvider, LogProperties logProperties) {
         this.sysLogProvider = sysLogProvider;
         this.logProperties = logProperties;

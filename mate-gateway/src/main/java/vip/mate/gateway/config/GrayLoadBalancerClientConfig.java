@@ -28,14 +28,14 @@ import vip.mate.gateway.rule.VersionGrayLoadBalancer;
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 public class GrayLoadBalancerClientConfig {
 
-	@Bean
-	public ReactiveLoadBalancerClientFilter gatewayLoadBalancerClientFilter(GrayLoadBalancer grayLoadBalancer,
-	                                                                        GatewayLoadBalancerProperties properties) {
-		return new GrayReactiveLoadBalancerClientFilter(properties, grayLoadBalancer);
-	}
+    @Bean
+    public ReactiveLoadBalancerClientFilter gatewayLoadBalancerClientFilter(GrayLoadBalancer grayLoadBalancer,
+                                                                            GatewayLoadBalancerProperties properties) {
+        return new GrayReactiveLoadBalancerClientFilter(properties, grayLoadBalancer);
+    }
 
-	@Bean
-	public GrayLoadBalancer grayLoadBalancer(DiscoveryClient discoveryClient) {
-		return new VersionGrayLoadBalancer(discoveryClient);
-	}
+    @Bean
+    public GrayLoadBalancer grayLoadBalancer(DiscoveryClient discoveryClient) {
+        return new VersionGrayLoadBalancer(discoveryClient);
+    }
 }

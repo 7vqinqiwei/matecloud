@@ -1,7 +1,7 @@
 package vip.mate.system.mapper;
 
-import vip.mate.system.entity.SysRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import vip.mate.system.entity.SysRole;
 import vip.mate.system.vo.SysRoleVO;
 
 import java.util.List;

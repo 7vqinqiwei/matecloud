@@ -34,49 +34,49 @@ import vip.mate.core.database.entity.BaseEntity;
 @Schema(name = "SysConfig对象", description = "配置表")
 public class SysConfig extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	* 父主键
-	*/
-	@Schema(description = "父主键")
-	private Long parentId;
-	/**
-	* 码
-	*/
-	@Schema(description = "码")
-	private String code;
-	/**
-	* 值
-	*/
-	@Schema(description = "值")
-	private String cKey;
-	/**
-	* 名称
-	*/
-	@Schema(description = "名称")
-	private String value;
-	/**
-	* 排序
-	*/
-	@Schema(description = "排序")
-	private Integer sort;
-	/**
-	* 备注
-	*/
-	@Schema(description = "备注")
-	private String remark;
+    /**
+     * 父主键
+     */
+    @Schema(description = "父主键")
+    private Long parentId;
+    /**
+     * 码
+     */
+    @Schema(description = "码")
+    private String code;
+    /**
+     * 值
+     */
+    @Schema(description = "值")
+    private String cKey;
+    /**
+     * 名称
+     */
+    @Schema(description = "名称")
+    private String value;
+    /**
+     * 排序
+     */
+    @Schema(description = "排序")
+    private Integer sort;
+    /**
+     * 备注
+     */
+    @Schema(description = "备注")
+    private String remark;
 
-	/**
-	 * 租户ID
-	 */
-	@Schema(description = "租户ID")
-	private Integer tenantId;
-	/**
-	* 是否已删除
-	*/
-	@Schema(description = "是否已删除")
-	private Integer isDeleted;
+    /**
+     * 租户ID
+     */
+    @Schema(description = "租户ID")
+    private Integer tenantId;
+    /**
+     * 是否已删除
+     */
+    @Schema(description = "是否已删除")
+    private Integer isDeleted;
 
 
 }

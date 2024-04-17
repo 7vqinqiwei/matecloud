@@ -2,7 +2,11 @@ package vip.mate.core.strategy.annonation;
 
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 策略模式注解
@@ -16,7 +20,7 @@ import java.lang.annotation.*;
 @Service
 public @interface HandlerType {
 
-	String type();
+    String type();
 
-	String source();
+    String source();
 }

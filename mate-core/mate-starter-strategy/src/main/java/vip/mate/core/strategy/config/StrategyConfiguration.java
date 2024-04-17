@@ -16,11 +16,11 @@ import java.util.List;
 @Configuration
 public class StrategyConfiguration {
 
-	@Bean
-	public BusinessHandlerChooser businessHandlerChooser(List<BusinessHandler> businessHandlers) {
-		BusinessHandlerChooser businessHandlerChooser = new BusinessHandlerChooser();
-		businessHandlerChooser.setBusinessHandlerMap(businessHandlers);
-		return businessHandlerChooser;
-	}
+    @Bean
+    public BusinessHandlerChooser businessHandlerChooser(List<BusinessHandler> businessHandlers) {
+        BusinessHandlerChooser businessHandlerChooser = new BusinessHandlerChooser();
+        businessHandlerChooser.setBusinessHandlerMap(businessHandlers);
+        return businessHandlerChooser;
+    }
 
 }

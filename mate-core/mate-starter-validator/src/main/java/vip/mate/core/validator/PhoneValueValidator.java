@@ -14,24 +14,24 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class PhoneValueValidator implements ConstraintValidator<PhoneValue, String> {
 
-	private Boolean required;
+    private Boolean required;
 
-	@Override
-	public void initialize(PhoneValue constraintAnnotation) {
-		this.required = constraintAnnotation.required();
-	}
+    @Override
+    public void initialize(PhoneValue constraintAnnotation) {
+        this.required = constraintAnnotation.required();
+    }
 
-	@Override
-	public boolean isValid(String phoneValue, ConstraintValidatorContext context) {
-		if (StrUtil.isEmpty(phoneValue)) {
-			if (required) {
-				return false;
-			} else {
-				return true;
-			}
-		} else {
-			return ReUtil.isMatch(Validator.MOBILE, phoneValue);
-		}
-	}
+    @Override
+    public boolean isValid(String phoneValue, ConstraintValidatorContext context) {
+        if (StrUtil.isEmpty(phoneValue)) {
+            if (required) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return ReUtil.isMatch(Validator.MOBILE, phoneValue);
+        }
+    }
 
 }

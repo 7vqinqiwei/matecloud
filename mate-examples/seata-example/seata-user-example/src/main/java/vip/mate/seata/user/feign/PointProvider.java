@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @FeignClient("seata-point-example")
 public interface PointProvider {
-	/**
-	 * 创建积分
-	 */
-	@GetMapping("/point")
-	public void createPoint();
+    /**
+     * 创建积分
+     */
+    @GetMapping("/point")
+    public void createPoint();
 }

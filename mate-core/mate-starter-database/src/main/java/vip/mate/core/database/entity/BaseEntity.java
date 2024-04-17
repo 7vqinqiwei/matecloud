@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 
 /**
  * 实体类的基类
+ *
  * @author pangu
  */
 @Data

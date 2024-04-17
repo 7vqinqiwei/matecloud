@@ -1,5 +1,8 @@
 package vip.mate.core.web.handler;
 
+import com.alibaba.cola.biz.exception.SysLimitException;
+import com.alibaba.cola.biz.exception.TokenException;
+import com.alibaba.cola.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
@@ -9,9 +12,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.common.constant.WebConstant;
-import vip.mate.core.common.exception.BaseException;
-import vip.mate.core.common.exception.PreviewException;
-import vip.mate.core.common.exception.TokenException;
 
 import java.io.FileNotFoundException;
 
@@ -31,8 +31,8 @@ public class BaseExceptionHandler {
      * @param ex 自定义BaseException异常类型
      * @return Result
      */
-    @ExceptionHandler(BaseException.class)
-    public Result<?> handleBaseException(BaseException ex) {
+    @ExceptionHandler(BizException.class)
+    public Result<?> handleBaseException(BizException ex) {
         log.error("程序异常：" + ex.toString());
         return Result.fail(WebConstant.Status.UNAUTHORIZED.getCode(), ex.getMessage());
     }
@@ -62,13 +62,13 @@ public class BaseExceptionHandler {
     }
 
     /**
-     * PreviewException 空指针异常捕获处理
+     * SysLimitException 空指针异常捕获处理
      *
-     * @param ex 自定义PreviewException异常类型
+     * @param ex 自定义SysLimitException异常类型
      * @return Result
      */
-    @ExceptionHandler(PreviewException.class)
-    public Result<?> handlePreviewException(PreviewException ex) {
+    @ExceptionHandler(SysLimitException.class)
+    public Result<?> handlePreviewException(SysLimitException ex) {
         log.error("程序异常：" + ex.toString());
         return Result.fail(WebConstant.Status.INTERNAL_SERVER_ERROR.getCode(), ex.getMessage());
     }

@@ -16,8 +16,8 @@
  */
 package vip.mate.code.mapper;
 
-import vip.mate.code.entity.Column;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import vip.mate.code.entity.Column;
 
 /**
  * <p>

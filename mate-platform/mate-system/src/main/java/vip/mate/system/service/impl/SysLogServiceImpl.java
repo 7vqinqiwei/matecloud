@@ -23,19 +23,19 @@ import vip.mate.system.service.ISysLogService;
 @Service
 public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> implements ISysLogService {
 
-	@Override
-	public IPage<SysLog> listPage(Search search) {
-		LambdaQueryWrapper<SysLog> queryWrapper = Wrappers.lambdaQuery();
-		// 查询开始日期和结束日期
-		queryWrapper.between(StrUtil.isNotBlank(search.getStartDate()), SysLog::getCreateTime, search.getStartDate(), search.getEndDate());
-		// 关键词查询
-		if (StrUtil.isNotBlank(search.getKeyword())) {
-			queryWrapper.and(i -> i
-					.or().like(SysLog::getTitle, search.getKeyword())
-					.or().like(SysLog::getTraceId, search.getKeyword()));
-		}
-		//　字段排序
-		queryWrapper.orderByDesc(SysLog::getCreateTime);
-		return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
-	}
+    @Override
+    public IPage<SysLog> listPage(Search search) {
+        LambdaQueryWrapper<SysLog> queryWrapper = Wrappers.lambdaQuery();
+        // 查询开始日期和结束日期
+        queryWrapper.between(StrUtil.isNotBlank(search.getStartDate()), SysLog::getCreateTime, search.getStartDate(), search.getEndDate());
+        // 关键词查询
+        if (StrUtil.isNotBlank(search.getKeyword())) {
+            queryWrapper.and(i -> i
+                    .or().like(SysLog::getTitle, search.getKeyword())
+                    .or().like(SysLog::getTraceId, search.getKeyword()));
+        }
+        //　字段排序
+        queryWrapper.orderByDesc(SysLog::getCreateTime);
+        return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
+    }
 }

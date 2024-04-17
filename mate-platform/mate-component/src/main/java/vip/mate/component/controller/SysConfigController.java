@@ -3,7 +3,12 @@ package vip.mate.component.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.component.service.ISysConfigService;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
@@ -31,7 +36,8 @@ public class SysConfigController extends BaseController {
 
     /**
      * 查询OSS配置
-     * @param code　代码
+     *
+     * @param code 　代码
      * @return Result
      */
     @PreAuth
@@ -44,6 +50,7 @@ public class SysConfigController extends BaseController {
 
     /**
      * 默认配置
+     *
      * @return Result
      */
     @PreAuth
@@ -56,6 +63,7 @@ public class SysConfigController extends BaseController {
 
     /**
      * 保存默认配置
+     *
      * @param code code
      * @return Result
      */
@@ -69,7 +77,8 @@ public class SysConfigController extends BaseController {
 
     /**
      * 保存OSS配置
-     * @param ossProperties　oss配置
+     *
+     * @param ossProperties 　oss配置
      * @param code
      * @return
      */

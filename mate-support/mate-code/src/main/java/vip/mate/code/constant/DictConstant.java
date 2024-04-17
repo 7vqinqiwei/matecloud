@@ -7,7 +7,9 @@ package vip.mate.code.constant;
  */
 public class DictConstant {
 
-    /** 字典类型 */
+    /**
+     * 字典类型
+     */
     public enum DictType {
 
         SYS_NORMAL_DISABLE("sys_normal_disable", "系统开关列表"),
@@ -33,7 +35,9 @@ public class DictConstant {
         }
     }
 
-    /** 常规：是否列表（Y是 N否） */
+    /**
+     * 常规：是否列表（Y是 N否）
+     */
     public enum DicYesNo {
 
         YES("Y", "是"),
@@ -56,7 +60,9 @@ public class DictConstant {
         }
     }
 
-    /** 常规：显隐列表（0显示 1隐藏） */
+    /**
+     * 常规：显隐列表（0显示 1隐藏）
+     */
     public enum DicShowHide {
 
         SHOW("0", "显示"),
@@ -79,7 +85,9 @@ public class DictConstant {
         }
     }
 
-    /** 常规：公共私有列表（0公共 1私有） */
+    /**
+     * 常规：公共私有列表（0公共 1私有）
+     */
     public enum DicCommonPrivate {
 
         COMMON("0", "公共"),
@@ -102,7 +110,9 @@ public class DictConstant {
         }
     }
 
-    /** 常规：状态列表（0正常 1失败） */
+    /**
+     * 常规：状态列表（0正常 1失败）
+     */
     public enum DicStatus {
 
         NORMAL("0", "正常"),

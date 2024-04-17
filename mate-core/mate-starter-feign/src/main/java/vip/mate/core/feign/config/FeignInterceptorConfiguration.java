@@ -1,5 +1,6 @@
 package vip.mate.core.feign.config;
 
+import com.wayne.context.TenantContext;
 import feign.RequestInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -8,7 +9,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import vip.mate.core.common.constant.MateConstant;
 import vip.mate.core.common.constant.TenantConstant;
-import vip.mate.core.common.context.TenantContextHolder;
 import vip.mate.core.common.util.StringUtil;
 import vip.mate.core.common.util.TraceUtil;
 
@@ -17,6 +17,7 @@ import java.util.Enumeration;
 
 /**
  * feign拦截器
+ *
  * @author pangu
  * @date 2020-9-9
  */
@@ -25,13 +26,14 @@ public class FeignInterceptorConfiguration {
 
     /**
      * 使用feign client发送请求时，传递tenantId和traceId
+     *
      * @return
      */
     @Bean
     public RequestInterceptor requestInterceptor() {
         return requestTemplate -> {
             //传递tenantId
-            String tenantId = TenantContextHolder.getTenantId();
+            String tenantId = TenantContext.get();
             if (StringUtil.isNotBlank(tenantId)) {
                 requestTemplate.header(TenantConstant.MATE_TENANT_ID, tenantId);
             }

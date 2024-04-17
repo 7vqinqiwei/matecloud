@@ -4,13 +4,20 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.zip.CRC32;
 import java.util.zip.CheckedInputStream;
 
 /**
  * 加密工具类，包含MD5,BASE64,SHA,CRC32
+ *
  * @author pangu
  */
 public class CryptoUtil {
@@ -20,8 +27,7 @@ public class CryptoUtil {
     /**
      * MD5加密
      *
-     * @param bytes
-     *            an array of byte.
+     * @param bytes an array of byte.
      * @return a {@link String} object.
      */
     public static String encodeMD5(final byte[] bytes) {
@@ -31,8 +37,7 @@ public class CryptoUtil {
     /**
      * MD5加密，默认UTF-8
      *
-     * @param str
-     *            a {@link String} object.
+     * @param str a {@link String} object.
      * @return a {@link String} object.
      */
     public static String encodeMD5(final String str) {
@@ -42,10 +47,8 @@ public class CryptoUtil {
     /**
      * MD5加密
      *
-     * @param str
-     *            a {@link String} object.
-     * @param charset
-     *            a {@link String} object.
+     * @param str     a {@link String} object.
+     * @param charset a {@link String} object.
      * @return a {@link String} object.
      */
     public static String encodeMD5(final String str, final String charset) {
@@ -63,8 +66,7 @@ public class CryptoUtil {
     /**
      * SHA加密
      *
-     * @param bytes
-     *            an array of byte.
+     * @param bytes an array of byte.
      * @return a {@link String} object.
      */
     public static String encodeSHA(final byte[] bytes) {
@@ -74,10 +76,8 @@ public class CryptoUtil {
     /**
      * SHA加密
      *
-     * @param str
-     *            a {@link String} object.
-     * @param charset
-     *            a {@link String} object.
+     * @param str     a {@link String} object.
+     * @param charset a {@link String} object.
      * @return a {@link String} object.
      */
     public static String encodeSHA(final String str, final String charset) {
@@ -95,8 +95,7 @@ public class CryptoUtil {
     /**
      * SHA加密,默认utf-8
      *
-     * @param str
-     *            a {@link String} object.
+     * @param str a {@link String} object.
      * @return a {@link String} object.
      */
     public static String encodeSHA(final String str) {
@@ -106,8 +105,7 @@ public class CryptoUtil {
     /**
      * BASE64加密
      *
-     * @param bytes
-     *            an array of byte.
+     * @param bytes an array of byte.
      * @return a {@link String} object.
      */
     public static String encodeBASE64(final byte[] bytes) {
@@ -117,10 +115,8 @@ public class CryptoUtil {
     /**
      * BASE64加密
      *
-     * @param str
-     *            a {@link String} object.
-     * @param charset
-     *            a {@link String} object.
+     * @param str     a {@link String} object.
+     * @param charset a {@link String} object.
      * @return a {@link String} object.
      */
     public static String encodeBASE64(final String str, String charset) {
@@ -138,8 +134,7 @@ public class CryptoUtil {
     /**
      * BASE64加密,默认UTF-8
      *
-     * @param str
-     *            a {@link String} object.
+     * @param str a {@link String} object.
      * @return a {@link String} object.
      */
     public static String encodeBASE64(final String str) {
@@ -149,8 +144,7 @@ public class CryptoUtil {
     /**
      * BASE64解密,默认UTF-8
      *
-     * @param str
-     *            a {@link String} object.
+     * @param str a {@link String} object.
      * @return a {@link String} object.
      */
     public static String decodeBASE64(String str) {
@@ -160,10 +154,8 @@ public class CryptoUtil {
     /**
      * BASE64解密
      *
-     * @param str
-     *            a {@link String} object.
-     * @param charset
-     *            字符编码
+     * @param str     a {@link String} object.
+     * @param charset 字符编码
      * @return a {@link String} object.
      */
     public static String decodeBASE64(String str, String charset) {
@@ -178,8 +170,7 @@ public class CryptoUtil {
     /**
      * CRC32字节校验
      *
-     * @param bytes
-     *            an array of byte.
+     * @param bytes an array of byte.
      * @return a {@link String} object.
      */
     public static String crc32(byte[] bytes) {
@@ -191,10 +182,8 @@ public class CryptoUtil {
     /**
      * CRC32字符串校验
      *
-     * @param str
-     *            a {@link String} object.
-     * @param charset
-     *            a {@link String} object.
+     * @param str     a {@link String} object.
+     * @param charset a {@link String} object.
      * @return a {@link String} object.
      */
     public static String crc32(final String str, String charset) {
@@ -209,8 +198,7 @@ public class CryptoUtil {
     /**
      * CRC32字符串校验,默认UTF-8编码读取
      *
-     * @param str
-     *            a {@link String} object.
+     * @param str a {@link String} object.
      * @return a {@link String} object.
      */
     public static String crc32(final String str) {
@@ -220,8 +208,7 @@ public class CryptoUtil {
     /**
      * CRC32流校验
      *
-     * @param input
-     *            a {@link InputStream} object.
+     * @param input a {@link InputStream} object.
      * @return a {@link String} object.
      */
     public static String crc32(InputStream input) {
@@ -243,8 +230,7 @@ public class CryptoUtil {
     /**
      * CRC32文件唯一校验
      *
-     * @param file
-     *            a {@link File} object.
+     * @param file a {@link File} object.
      * @return a {@link String} object.
      */
     public static String crc32(File file) {
@@ -263,8 +249,7 @@ public class CryptoUtil {
     /**
      * CRC32文件唯一校验
      *
-     * @param url
-     *            a {@link URL} object.
+     * @param url a {@link URL} object.
      * @return a {@link String} object.
      */
     public static String crc32(URL url) {

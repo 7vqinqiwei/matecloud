@@ -13,8 +13,8 @@ import lombok.Data;
 @Data
 @TableName("mate_demo_point")
 public class Point {
-	@TableId(type = IdType.AUTO)
-	Integer id;
+    @TableId(type = IdType.AUTO)
+    Integer id;
 
-	Integer count;
+    Integer count;
 }

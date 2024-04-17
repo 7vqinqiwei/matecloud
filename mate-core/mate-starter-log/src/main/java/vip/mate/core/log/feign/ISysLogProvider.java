@@ -10,6 +10,7 @@ import vip.mate.core.feign.constant.FeignConstant;
 
 /**
  * feign调用mate-system存储日志
+ *
  * @author pangu
  * @date 2020-7-1
  */
@@ -18,7 +19,8 @@ public interface ISysLogProvider {
 
     /**
      * 日志设置
-     * @param commonLog　CommonLog对象
+     *
+     * @param commonLog 　CommonLog对象
      * @return Result
      */
     @PostMapping(ProviderConstant.PROVIDER_LOG_SET)

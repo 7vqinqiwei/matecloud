@@ -13,19 +13,19 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EnvType {
 
-	/**
-	 * 环境变量
-	 * LOCAL 本地
-	 * DEV 开发
-	 * TEST 测试
-	 * PROD 生产
-	 * DOCKER Docker
-	 */
-	LOCAL("local"),
-	DEV("dev"),
-	TEST("test"),
-	PROD("prod"),
-	DOCKER("docker");
+    /**
+     * 环境变量
+     * LOCAL 本地
+     * DEV 开发
+     * TEST 测试
+     * PROD 生产
+     * DOCKER Docker
+     */
+    LOCAL("local"),
+    DEV("dev"),
+    TEST("test"),
+    PROD("prod"),
+    DOCKER("docker");
 
-	private final String value;
+    private final String value;
 }

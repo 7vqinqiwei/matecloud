@@ -1,5 +1,6 @@
 package vip.mate.core.feign.fallback;
 
+import com.alibaba.cola.exception.result.ErrorCode;
 import feign.FeignException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,13 +9,13 @@ import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 import vip.mate.core.common.api.Result;
-import vip.mate.core.common.api.ResultCode;
 
 import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
  * fallback 代理处理
+ *
  * @param <T>
  */
 @Slf4j
@@ -38,13 +39,13 @@ public class MateFeignFallback<T> implements MethodInterceptor {
         }
         // 非 FeignException
         if (!(cause instanceof FeignException)) {
-            return Result.fail(ResultCode.FAILURE, errorMessage);
+            return Result.fail(ErrorCode.BAD_REQUEST, errorMessage);
         }
         FeignException exception = (FeignException) cause;
         byte[] content = exception.content();
         // 如果返回的数据为空
         if (ObjectUtils.isEmpty(content)) {
-            return Result.fail(ResultCode.FAILURE, errorMessage);
+            return Result.fail(ErrorCode.BAD_REQUEST, errorMessage);
         }
         return Result.fail(content.toString());
     }

@@ -12,12 +12,12 @@ import java.util.List;
  */
 public interface AbstractDataScopeHandler {
 
-	/**
-	 * 获取部门ID列表
-	 *
-	 * @param roleDto           角色对象
-	 * @param dataScopeTypeEnum 数据权限枚举
-	 * @return int数组
-	 */
-	List<Long> getDeptIds(RoleDTO roleDto, DataScopeTypeEnum dataScopeTypeEnum);
+    /**
+     * 获取部门ID列表
+     *
+     * @param roleDto           角色对象
+     * @param dataScopeTypeEnum 数据权限枚举
+     * @return int数组
+     */
+    List<Long> getDeptIds(RoleDTO roleDto, DataScopeTypeEnum dataScopeTypeEnum);
 }

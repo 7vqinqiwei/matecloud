@@ -13,8 +13,8 @@ import reactor.core.publisher.Mono;
  */
 @Configuration
 public class RateLimiterConfig {
-	@Bean(value = "remoteAddrKeyResolver")
-	public KeyResolver remoteAddrKeyResolver() {
-		return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getAddress().getHostAddress());
-	}
+    @Bean(value = "remoteAddrKeyResolver")
+    public KeyResolver remoteAddrKeyResolver() {
+        return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getAddress().getHostAddress());
+    }
 }

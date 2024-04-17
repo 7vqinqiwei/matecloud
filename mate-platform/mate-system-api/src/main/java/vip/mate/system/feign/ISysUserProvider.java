@@ -9,8 +9,6 @@ import vip.mate.core.feign.constant.FeignConstant;
 import vip.mate.system.dto.UserInfo;
 import vip.mate.system.entity.SysUser;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * 用户调用类
  *
@@ -30,7 +28,8 @@ public interface ISysUserProvider {
 
     /**
      * 根据userName查询用户信息
-     * @param userName　用户名
+     *
+     * @param userName 　用户名
      * @return Result
      */
     @GetMapping(ProviderConstant.PROVIDER_USER_USERNAME)
@@ -38,7 +37,8 @@ public interface ISysUserProvider {
 
     /**
      * 根据手机号查询用户信息
-     * @param mobile　手机号码
+     *
+     * @param mobile 　手机号码
      * @return Result
      */
     @GetMapping(ProviderConstant.PROVIDER_USER_MOBILE)

@@ -42,20 +42,20 @@ import java.util.List;
 @Service
 public class SysRouteServiceImpl extends ServiceImpl<SysRouteMapper, SysRoute> implements ISysRouteService {
 
-	@Override
-	public IPage<SysRoute> listPage(Search search) {
-		LambdaQueryWrapper<SysRoute> queryWrapper = Wrappers.<SysRoute>query().lambda()
-				.between(StrUtil.isNotBlank(search.getStartDate()), SysRoute::getCreateTime, search.getStartDate(), search.getEndDate());
-		boolean isKeyword = StrUtil.isNotBlank(search.getKeyword());
-		queryWrapper.like(isKeyword, SysRoute::getServiceId, search.getKeyword())
-				.or(isKeyword)
-				.like(isKeyword, SysRoute::getName, search.getKeyword());
-		queryWrapper.orderByDesc(SysRoute::getCreateTime);
-		return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
-	}
+    @Override
+    public IPage<SysRoute> listPage(Search search) {
+        LambdaQueryWrapper<SysRoute> queryWrapper = Wrappers.<SysRoute>query().lambda()
+                .between(StrUtil.isNotBlank(search.getStartDate()), SysRoute::getCreateTime, search.getStartDate(), search.getEndDate());
+        boolean isKeyword = StrUtil.isNotBlank(search.getKeyword());
+        queryWrapper.like(isKeyword, SysRoute::getServiceId, search.getKeyword())
+                .or(isKeyword)
+                .like(isKeyword, SysRoute::getName, search.getKeyword());
+        queryWrapper.orderByDesc(SysRoute::getCreateTime);
+        return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
+    }
 
-	@Override
-	public List<SysRouteVO> listItem() {
-		return this.baseMapper.listItem();
-	}
+    @Override
+    public List<SysRouteVO> listItem() {
+        return this.baseMapper.listItem();
+    }
 }

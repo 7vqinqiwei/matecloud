@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 通过header里的token获取用户信息
+ *
  * @author pangu
  * @link https://my.oschina.net/u/4149877/blog/3143391/print
  * @link https://blog.csdn.net/aiyaya_/article/details/79221733
@@ -33,7 +34,7 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
         EnableUser user = methodParameter.getParameterAnnotation(EnableUser.class);
-        boolean value= user.value();
+        boolean value = user.value();
         HttpServletRequest request = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
         LoginUser loginUser = SecurityUtil.getUsername(request);
         /**

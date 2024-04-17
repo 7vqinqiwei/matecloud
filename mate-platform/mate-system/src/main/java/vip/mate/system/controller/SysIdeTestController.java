@@ -13,9 +13,9 @@ import vip.mate.core.ide.enums.IdeTypeEnum;
 @RestController
 public class SysIdeTestController {
 
-	@GetMapping("/ide/test")
-	@Ide(perFix = "TEST_", key = "key", ideTypeEnum = IdeTypeEnum.KEY)
-	public Result<?> test(@RequestParam String key) {
-		return Result.data(key);
-	}
+    @GetMapping("/ide/test")
+    @Ide(perFix = "TEST_", key = "key", ideTypeEnum = IdeTypeEnum.KEY)
+    public Result<?> test(@RequestParam String key) {
+        return Result.data(key);
+    }
 }

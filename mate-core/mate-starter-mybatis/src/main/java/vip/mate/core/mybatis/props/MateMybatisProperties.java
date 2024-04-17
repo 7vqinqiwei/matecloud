@@ -31,8 +31,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @RefreshScope
 @ConfigurationProperties("mate.mybatis")
 public class MateMybatisProperties {
-	/**
-	 * 是否打印可执行 sql
-	 */
-	private boolean sql = true;
+    /**
+     * 是否打印可执行 sql
+     */
+    private boolean sql = true;
 }

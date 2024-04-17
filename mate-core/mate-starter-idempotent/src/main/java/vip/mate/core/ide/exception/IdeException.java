@@ -7,9 +7,9 @@ package vip.mate.core.ide.exception;
  */
 public class IdeException extends RuntimeException {
 
-	private static final long serialVersionUID = -851115183208290929L;
+    private static final long serialVersionUID = -851115183208290929L;
 
-	public IdeException(String message) {
-		super(message);
-	}
+    public IdeException(String message) {
+        super(message);
+    }
 }

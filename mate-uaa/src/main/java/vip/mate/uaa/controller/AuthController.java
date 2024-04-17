@@ -13,7 +13,11 @@ import me.zhyd.oauth.request.AuthRequest;
 import me.zhyd.oauth.utils.AuthStateUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.common.constant.Oauth2Constant;
@@ -68,7 +72,7 @@ public class AuthController {
     @Log(value = "用户信息", exception = "用户信息请求异常")
     @GetMapping("/get/user")
     @Parameters({
-            @Parameter(name = "Mate-Auth", required = true,  description = "授权类型", in = ParameterIn.QUERY)
+            @Parameter(name = "Mate-Auth", required = true, description = "授权类型", in = ParameterIn.QUERY)
     })
     @Operation(summary = "用户信息", description = "用户信息")
     public Result<?> getUser(HttpServletRequest request) {
@@ -105,7 +109,7 @@ public class AuthController {
     @GetMapping("/code")
     @Operation(summary = "验证码获取", description = "验证码获取")
     @Parameters({
-            @Parameter(name = "Authorization", required = true,  description = "授权类型", in = ParameterIn.QUERY)
+            @Parameter(name = "Authorization", required = true, description = "授权类型", in = ParameterIn.QUERY)
     })
     public Result<?> authCode() {
         return validateService.getCode();
@@ -115,7 +119,7 @@ public class AuthController {
     @PostMapping("/logout")
     @Operation(summary = "退出登录", description = "退出登录")
     @Parameters({
-            @Parameter(name = "Mate-Auth", required = true,  description = "授权类型", in = ParameterIn.QUERY)
+            @Parameter(name = "Mate-Auth", required = true, description = "授权类型", in = ParameterIn.QUERY)
     })
     public Result<?> logout(HttpServletRequest request) {
         if (StringUtil.isNotBlank(SecurityUtil.getHeaderToken(request))) {
@@ -133,7 +137,7 @@ public class AuthController {
     @Log(value = "手机验证码下发", exception = "手机验证码下发请求异常")
     @Operation(summary = "手机验证码下发", description = "手机验证码下发")
     @Parameters({
-            @Parameter(name = "Authorization", required = true,  description = "授权类型", in = ParameterIn.QUERY)
+            @Parameter(name = "Authorization", required = true, description = "授权类型", in = ParameterIn.QUERY)
     })
     @GetMapping("/sms-code")
     public Result<?> smsCode(String mobile) {

@@ -6,10 +6,15 @@ import org.springframework.cloud.openfeign.MateFeignClientsRegistrar;
 import org.springframework.context.annotation.Import;
 import vip.mate.core.feign.config.FeignInterceptorConfiguration;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * Feign注解
+ *
  * @author pangu
  */
 @Target(ElementType.TYPE)

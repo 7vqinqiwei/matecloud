@@ -14,17 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 @AllArgsConstructor
 public class IndexController {
 
-	private final HttpServletRequest request;
+    private final HttpServletRequest request;
 
-	/**
-	 * 欢迎页
-	 *
-	 * @return
-	 */
-	@GetMapping("/")
-	public Result<?> index(ModelMap modelMap) {
-		LoginUser user = SecurityUtil.getUsername(request);
-		modelMap.put("user", user);
-		return Result.data(modelMap);
-	}
+    /**
+     * 欢迎页
+     *
+     * @return
+     */
+    @GetMapping("/")
+    public Result<?> index(ModelMap modelMap) {
+        LoginUser user = SecurityUtil.getUsername(request);
+        modelMap.put("user", user);
+        return Result.data(modelMap);
+    }
 }

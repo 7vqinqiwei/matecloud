@@ -25,12 +25,15 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,
+        id
+        ,
                 name, path, url, service_id, status, create_by, update_by, create_time, update_time, is_deleted, tenant_id
     </sql>
 
     <select id="listItem" resultMap="routeVOResultMap">
-        select id, service_id as name from mate_sys_route order by create_time
+        select id, service_id as name
+        from mate_sys_route
+        order by create_time
     </select>
 
 </mapper>

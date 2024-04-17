@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * 日志配置
+ *
  * @author pangu
  * @date 2020-9-5
  */

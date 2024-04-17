@@ -34,19 +34,19 @@ import java.util.List;
  */
 public interface ISysRouteService extends IService<SysRoute> {
 
-	/**
-	 * 分页业务方法
-	 *
-	 * @param search 　搜索参数
-	 * @return IPage
-	 */
-	IPage<SysRoute> listPage(Search search);
+    /**
+     * 分页业务方法
+     *
+     * @param search 　搜索参数
+     * @return IPage
+     */
+    IPage<SysRoute> listPage(Search search);
 
-	/**
-	 * 查询微服务列表
-	 *
-	 * @return List<SysRouteVO>
-	 */
-	List<SysRouteVO> listItem();
+    /**
+     * 查询微服务列表
+     *
+     * @return List<SysRouteVO>
+     */
+    List<SysRouteVO> listItem();
 
 }

@@ -7,6 +7,7 @@ import org.springframework.messaging.SubscribableChannel;
 
 /**
  * 日志消息通道
+ *
  * @author pangu
  */
 @Deprecated
@@ -24,6 +25,7 @@ public interface LogChannel {
 
     /**
      * 发消息的通道
+     *
      * @return MessageChannel
      */
     @Output(LOG_OUTPUT)
@@ -31,6 +33,7 @@ public interface LogChannel {
 
     /**
      * 收消息的通道
+     *
      * @return SubscribableChannel
      */
     @Input(LOG_INPUT)

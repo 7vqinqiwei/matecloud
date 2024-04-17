@@ -17,7 +17,11 @@
 package vip.mate.code.controller;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import io.swagger.v3.oas.annotations.Operation;
@@ -60,6 +64,7 @@ public class SysCodeController {
 
     /**
      * 数据库表信息
+     *
      * @param dataSourceId 数据源Id
      * @return Result
      */
@@ -88,11 +93,12 @@ public class SysCodeController {
 
     /**
      * 代码生成
-     * @param packageName　包名
-     * @param prefix　前缀
-     * @param modelName　模块名
-     * @param datasourceId　数据源名
-     * @param tableName　表名
+     *
+     * @param packageName  　包名
+     * @param prefix       　前缀
+     * @param modelName    　模块名
+     * @param datasourceId 　数据源名
+     * @param tableName    　表名
      */
     @PreAuth
     @Log(value = "代码生成", exception = "代码生成请求异常")

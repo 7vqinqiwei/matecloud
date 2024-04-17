@@ -19,18 +19,18 @@ import java.util.Set;
 @Component("4")
 @AllArgsConstructor
 public class CustomizeDataScope implements AbstractDataScopeHandler {
-	private final ISysDepartService sysDepartService;
+    private final ISysDepartService sysDepartService;
 
-	@Override
-	public List<Long> getDeptIds(RoleDTO roleDto, DataScopeTypeEnum dataScopeTypeEnum) {
-		List<Long> roleDeptIds = roleDto.getRoleDepts();
-		List<Long> ids = new ArrayList<>();
-		for (Long deptId : roleDeptIds) {
-			ids.addAll(sysDepartService.selectDeptIds(deptId));
-		}
-		Set<Long> set = new HashSet<>(ids);
-		ids.clear();
-		ids.addAll(set);
-		return ids;
-	}
+    @Override
+    public List<Long> getDeptIds(RoleDTO roleDto, DataScopeTypeEnum dataScopeTypeEnum) {
+        List<Long> roleDeptIds = roleDto.getRoleDepts();
+        List<Long> ids = new ArrayList<>();
+        for (Long deptId : roleDeptIds) {
+            ids.addAll(sysDepartService.selectDeptIds(deptId));
+        }
+        Set<Long> set = new HashSet<>(ids);
+        ids.clear();
+        ids.addAll(set);
+        return ids;
+    }
 }

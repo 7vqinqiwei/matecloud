@@ -25,7 +25,12 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.common.constant.MateConstant;
@@ -54,7 +59,7 @@ import java.util.Set;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api")
-@Tag(name  = "API管理")
+@Tag(name = "API管理")
 public class SysApiController extends BaseController {
 
     private final ISysApiService sysApiService;
@@ -73,11 +78,11 @@ public class SysApiController extends BaseController {
     @GetMapping("/page")
     @Operation(summary = "API分页")
     @Parameters({
-            @Parameter(name = "current", required = true,  description = "当前页", in = ParameterIn.DEFAULT),
-            @Parameter(name = "size", required = true,  description = "每页显示数据", in = ParameterIn.DEFAULT),
-            @Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-            @Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-            @Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "current", required = true, description = "当前页", in = ParameterIn.DEFAULT),
+            @Parameter(name = "size", required = true, description = "每页显示数据", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
     })
     public Result<?> page(Page<?> page, Search search, @Nullable @RequestParam String serviceId) {
         return Result.data(sysApiService.listPage(page, search, serviceId));
@@ -94,7 +99,7 @@ public class SysApiController extends BaseController {
     @GetMapping("/get")
     @Operation(summary = "API信息")
     @Parameters({
-            @Parameter(name = "id", required = true,  description = "ID", in = ParameterIn.DEFAULT),
+            @Parameter(name = "id", required = true, description = "ID", in = ParameterIn.DEFAULT),
     })
     public Result<?> get(@RequestParam String id) {
         return Result.data(sysApiService.getById(id));
@@ -125,7 +130,7 @@ public class SysApiController extends BaseController {
     @PostMapping("/del")
     @Operation(summary = "API删除")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
     })
     public Result<?> del(@RequestParam String ids) {
         return Result.condition(sysApiService.removeByIds(CollectionUtil.stringToCollection(ids)));
@@ -143,8 +148,8 @@ public class SysApiController extends BaseController {
     @PostMapping("/set-status")
     @Operation(summary = "API状态")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个id用,号隔开", in = ParameterIn.DEFAULT),
-            @Parameter(name = "status", required = true,  description = "状态", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个id用,号隔开", in = ParameterIn.DEFAULT),
+            @Parameter(name = "status", required = true, description = "状态", in = ParameterIn.DEFAULT)
     })
     public Result<?> setStatus(@RequestParam String ids, @RequestParam String status) {
         return Result.condition(sysApiService.status(ids, status));

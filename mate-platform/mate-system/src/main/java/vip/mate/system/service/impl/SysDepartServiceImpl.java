@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 public class SysDepartServiceImpl extends ServiceImpl<SysDepartMapper, SysDepart> implements ISysDepartService {
 
     private final static String NULL = "null";
+
     @Override
     public List<SysDepartVO> tree() {
         return baseMapper.tree();

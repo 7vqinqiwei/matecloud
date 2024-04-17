@@ -21,7 +21,13 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 import vip.mate.core.common.constant.MateConstant;
 import vip.mate.core.common.dto.CommonLog;
-import vip.mate.core.common.util.*;
+import vip.mate.core.common.util.IPUtil;
+import vip.mate.core.common.util.RequestHolder;
+import vip.mate.core.common.util.SecurityUtil;
+import vip.mate.core.common.util.StringPool;
+import vip.mate.core.common.util.StringUtil;
+import vip.mate.core.common.util.ThrowableUtil;
+import vip.mate.core.common.util.TraceUtil;
 import vip.mate.core.log.annotation.Log;
 import vip.mate.core.log.event.LogEvent;
 
@@ -32,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 日志拦截器
+ *
  * @author pangu
  */
 @Slf4j
@@ -54,6 +61,7 @@ public class LogAspect {
 
     /**
      * 配置环绕通知,使用在方法logPointcut()上注册的切入点
+     *
      * @param point
      * @return
      * @throws Throwable
@@ -65,7 +73,7 @@ public class LogAspect {
         //　获取request
         HttpServletRequest request = RequestHolder.getHttpServletRequest();
         // 判断为空则直接跳过执行
-        if (ObjectUtils.isEmpty(request)){
+        if (ObjectUtils.isEmpty(request)) {
             return point.proceed();
         }
         //　获取注解里的value值
@@ -96,7 +104,7 @@ public class LogAspect {
         }
         //　如果是登录请求，则不获取用户信息
         String userName = null;
-        if (!url.contains("oauth") && !(url.contains("code"))){
+        if (!url.contains("oauth") && !(url.contains("code"))) {
             //判断header是否存在，存在则获取用户名
             if (StringUtil.isNotBlank(SecurityUtil.getHeaderToken(request))) {
                 userName = SecurityUtil.getUsername(request).getAccount();
@@ -105,15 +113,15 @@ public class LogAspect {
         //　封装SysLog
         CommonLog commonLog = new CommonLog();
         commonLog.setIp(ip)
-        .setCreateBy(userName)
-        .setMethod(method)
-        .setUrl(url)
-        .setOperation(String.valueOf(result))
-        .setLocation(StringUtils.isEmpty(region) ? "本地" : region)
-        .setTraceId(request.getHeader(MateConstant.MATE_TRACE_ID))
-        .setExecuteTime(tookTime)
-        .setTitle(logAnn.value())
-        .setParams(JSON.toJSONString(requestParam));
+                .setCreateBy(userName)
+                .setMethod(method)
+                .setUrl(url)
+                .setOperation(String.valueOf(result))
+                .setLocation(StringUtils.isEmpty(region) ? "本地" : region)
+                .setTraceId(request.getHeader(MateConstant.MATE_TRACE_ID))
+                .setExecuteTime(tookTime)
+                .setTitle(logAnn.value())
+                .setParams(JSON.toJSONString(requestParam));
         log.info("Http Request: {}", JSONObject.toJSONString(commonLog));
         // 发布事件
         applicationContext.publishEvent(new LogEvent(commonLog));
@@ -125,7 +133,7 @@ public class LogAspect {
      * 配置异常通知
      *
      * @param point join point for advice
-     * @param e exception
+     * @param e     exception
      */
     @AfterThrowing(pointcut = "pointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint point, Throwable e) {
@@ -151,14 +159,14 @@ public class LogAspect {
         Log logAnn = targetMethod.getAnnotation(Log.class);
 
         commonLog.setExecuteTime(TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime))
-        .setIp(ip)
-        .setLocation(region)
-        .setMethod(method)
-        .setUrl(url)
-        .setTraceId(TraceUtil.getTraceId(request))
-        .setType("2")
-        .setTitle(logAnn.value())
-        .setException(ThrowableUtil.getStackTrace(e));
+                .setIp(ip)
+                .setLocation(region)
+                .setMethod(method)
+                .setUrl(url)
+                .setTraceId(TraceUtil.getTraceId(request))
+                .setType("2")
+                .setTitle(logAnn.value())
+                .setException(ThrowableUtil.getStackTrace(e));
         //设置MDC
         TraceUtil.mdcTraceId(TraceUtil.getTraceId(request));
         // 发布事件
@@ -192,6 +200,7 @@ public class LogAspect {
 
     /**
      * 获取请求参数
+     *
      * @param args
      * @param request
      * @return

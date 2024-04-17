@@ -14,7 +14,7 @@ import vip.mate.core.feign.annotation.EnableMateFeign;
 @SpringBootApplication
 @EnableTransactionManagement
 public class SeataUserServer {
-	public static void main(String[] args) {
-		SpringApplication.run(SeataUserServer.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SeataUserServer.class, args);
+    }
 }

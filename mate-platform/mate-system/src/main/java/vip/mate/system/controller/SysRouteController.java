@@ -22,7 +22,12 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.database.entity.Search;
@@ -45,91 +50,91 @@ import javax.validation.Valid;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/route")
-@Tag(name  = "系统路由表", description = "系统路由表接口")
+@Tag(name = "系统路由表", description = "系统路由表接口")
 public class SysRouteController extends BaseController {
 
-	private final ISysRouteService sysRouteService;
+    private final ISysRouteService sysRouteService;
 
-	/**
-	 * 分页列表
-	 *
-	 * @param search 　搜索关键词
-	 * @return Result
-	 */
-	@PreAuth
-	@Log(value = "系统路由分页列表", exception = "系统路由分页列表请求异常")
-	@GetMapping("/page")
-	@Operation(summary = "系统路由分页", description = "分页查询")
-	@Parameters({
-			@Parameter(name = "current", required = true,  description = "当前页", in = ParameterIn.DEFAULT),
-			@Parameter(name = "size", required = true,  description = "每页显示数据", in = ParameterIn.DEFAULT),
-			@Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-			@Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-			@Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
-	})
-	public Result<?> page(Search search) {
-		return Result.data(sysRouteService.listPage(search));
-	}
+    /**
+     * 分页列表
+     *
+     * @param search 　搜索关键词
+     * @return Result
+     */
+    @PreAuth
+    @Log(value = "系统路由分页列表", exception = "系统路由分页列表请求异常")
+    @GetMapping("/page")
+    @Operation(summary = "系统路由分页", description = "分页查询")
+    @Parameters({
+            @Parameter(name = "current", required = true, description = "当前页", in = ParameterIn.DEFAULT),
+            @Parameter(name = "size", required = true, description = "每页显示数据", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
+    })
+    public Result<?> page(Search search) {
+        return Result.data(sysRouteService.listPage(search));
+    }
 
-	/**
-	 * 系统路由表信息
-	 *
-	 * @param id Id
-	 * @return Result
-	 */
-	@PreAuth
-	@Log(value = "系统路由表信息", exception = "系统路由表信息请求异常")
-	@GetMapping("/get")
-	@Operation(summary = "系统路由表信息", description = "根据ID查询")
-	@Parameters({
-			@Parameter(name = "id", required = true,  description = "ID", in = ParameterIn.DEFAULT),
-	})
-	public Result<?> get(@RequestParam String id) {
-		return Result.data(sysRouteService.getById(id));
-	}
+    /**
+     * 系统路由表信息
+     *
+     * @param id Id
+     * @return Result
+     */
+    @PreAuth
+    @Log(value = "系统路由表信息", exception = "系统路由表信息请求异常")
+    @GetMapping("/get")
+    @Operation(summary = "系统路由表信息", description = "根据ID查询")
+    @Parameters({
+            @Parameter(name = "id", required = true, description = "ID", in = ParameterIn.DEFAULT),
+    })
+    public Result<?> get(@RequestParam String id) {
+        return Result.data(sysRouteService.getById(id));
+    }
 
-	/**
-	 * 系统路由表设置
-	 *
-	 * @param sysRoute SysRoute 对象
-	 * @return Result
-	 */
-	@PreAuth
-	@Log(value = "系统路由表设置", exception = "系统路由表设置请求异常")
-	@PostMapping("/set")
-	@Operation(summary = "系统路由表设置", description = "系统路由表设置,支持新增或修改")
-	public Result<?> set(@Valid @RequestBody SysRoute sysRoute) {
-		return Result.condition(sysRouteService.saveOrUpdate(sysRoute));
-	}
+    /**
+     * 系统路由表设置
+     *
+     * @param sysRoute SysRoute 对象
+     * @return Result
+     */
+    @PreAuth
+    @Log(value = "系统路由表设置", exception = "系统路由表设置请求异常")
+    @PostMapping("/set")
+    @Operation(summary = "系统路由表设置", description = "系统路由表设置,支持新增或修改")
+    public Result<?> set(@Valid @RequestBody SysRoute sysRoute) {
+        return Result.condition(sysRouteService.saveOrUpdate(sysRoute));
+    }
 
-	/**
-	 * 系统路由表删除
-	 *
-	 * @param ids id字符串，根据,号分隔
-	 * @return Result
-	 */
-	@PreAuth
-	@Log(value = "系统路由表删除", exception = "系统路由表删除请求异常")
-	@PostMapping("/del")
-	@Operation(summary = "系统路由表删除", description = "系统路由表删除")
-	@Parameters({
-			@Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
-	})
-	public Result<?> del(@RequestParam String ids) {
-		return Result.condition(sysRouteService.removeByIds(CollectionUtil.stringToCollection(ids)));
-	}
+    /**
+     * 系统路由表删除
+     *
+     * @param ids id字符串，根据,号分隔
+     * @return Result
+     */
+    @PreAuth
+    @Log(value = "系统路由表删除", exception = "系统路由表删除请求异常")
+    @PostMapping("/del")
+    @Operation(summary = "系统路由表删除", description = "系统路由表删除")
+    @Parameters({
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+    })
+    public Result<?> del(@RequestParam String ids) {
+        return Result.condition(sysRouteService.removeByIds(CollectionUtil.stringToCollection(ids)));
+    }
 
-	/**
-	 * 系统路由列表
-	 *
-	 * @return Result<List<SysRouteVO>>
-	 */
-	@PreAuth
-	@Log(value = "系统路由列表", exception = "系统路由列表请求异常")
-	@GetMapping("/list-item")
-	@Operation(summary = "系统路由列表", description = "系统路由列表")
-	public Result<?> listItem() {
-		return Result.data(sysRouteService.listItem());
-	}
+    /**
+     * 系统路由列表
+     *
+     * @return Result<List < SysRouteVO>>
+     */
+    @PreAuth
+    @Log(value = "系统路由列表", exception = "系统路由列表请求异常")
+    @GetMapping("/list-item")
+    @Operation(summary = "系统路由列表", description = "系统路由列表")
+    public Result<?> listItem() {
+        return Result.data(sysRouteService.listItem());
+    }
 }
 

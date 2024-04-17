@@ -15,13 +15,13 @@ import vip.mate.core.gray.rule.GrayRoundRobinLoadBalancer;
  */
 public class GrayLoadbalancerConfig {
 
-	@Bean
-	public ReactorLoadBalancer<ServiceInstance> reactorServiceInstanceLoadBalancer(Environment environment,
-	                                                                               LoadBalancerClientFactory loadBalancerClientFactory) {
-		String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
-		return new GrayRoundRobinLoadBalancer(
-				loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
-	}
+    @Bean
+    public ReactorLoadBalancer<ServiceInstance> reactorServiceInstanceLoadBalancer(Environment environment,
+                                                                                   LoadBalancerClientFactory loadBalancerClientFactory) {
+        String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
+        return new GrayRoundRobinLoadBalancer(
+                loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
+    }
 
 
 }

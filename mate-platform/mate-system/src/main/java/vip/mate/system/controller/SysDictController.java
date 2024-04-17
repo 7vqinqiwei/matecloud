@@ -9,7 +9,12 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.database.entity.Search;
@@ -80,11 +85,11 @@ public class SysDictController extends BaseController {
     @GetMapping("/page")
     @Operation(summary = "字典分页", description = "字典分页")
     @Parameters({
-            @Parameter(name = "current", required = true,  description = "当前页", in = ParameterIn.DEFAULT),
-            @Parameter(name = "size", required = true,  description = "每页显示数据", in = ParameterIn.DEFAULT),
-            @Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-            @Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-            @Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "current", required = true, description = "当前页", in = ParameterIn.DEFAULT),
+            @Parameter(name = "size", required = true, description = "每页显示数据", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
     })
     public Result<?> page(Page page, Search search) {
         return Result.data(sysDictService.listPage(page, search));
@@ -132,7 +137,7 @@ public class SysDictController extends BaseController {
     @GetMapping("/get")
     @Operation(summary = "字典信息", description = "根据ID查询")
     @Parameters({
-            @Parameter(name = "id", required = true,  description = "主键ID", in = ParameterIn.DEFAULT),
+            @Parameter(name = "id", required = true, description = "主键ID", in = ParameterIn.DEFAULT),
     })
     public Result<?> get(@RequestParam String id) {
         return Result.data(sysDictService.getById(id));
@@ -149,7 +154,7 @@ public class SysDictController extends BaseController {
     @PostMapping("/del")
     @Operation(summary = "字典删除", description = "字典删除")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
     })
     @Transactional(rollbackFor = Exception.class)
     public Result<?> del(@RequestParam String ids) {

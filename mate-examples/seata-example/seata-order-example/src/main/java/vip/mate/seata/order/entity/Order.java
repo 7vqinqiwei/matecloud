@@ -15,8 +15,8 @@ import lombok.Data;
 @TableName("mate_demo_order")
 public class Order {
 
-	@TableId(type = IdType.AUTO)
-	Integer id;
-	@TableField("money")
-	Integer money;
+    @TableId(type = IdType.AUTO)
+    Integer id;
+    @TableField("money")
+    Integer money;
 }

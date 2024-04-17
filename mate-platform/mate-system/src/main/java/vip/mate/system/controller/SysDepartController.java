@@ -7,7 +7,12 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.file.util.ExcelUtil;
@@ -52,9 +57,9 @@ public class SysDepartController extends BaseController {
     @GetMapping("/list")
     @Operation(summary = "部门列表", description = "部门列表，根据search查询")
     @Parameters({
-            @Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-            @Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-            @Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
     })
     public Result<?> list(@RequestParam Map<String, Object> search) {
         return Result.data(sysDepartService.searchList(search));
@@ -98,7 +103,7 @@ public class SysDepartController extends BaseController {
     @Log(value = "部门信息", exception = "部门信息息请求异常")
     @Operation(summary = "部门信息", description = "部门信息,根据ID查询")
     @Parameters({
-            @Parameter(name = "id", required = true,  description = "菜单ID", in = ParameterIn.DEFAULT),
+            @Parameter(name = "id", required = true, description = "菜单ID", in = ParameterIn.DEFAULT),
     })
     public Result<?> get(@RequestParam String id) {
         LambdaQueryWrapper<SysDepart> queryWrapper = new LambdaQueryWrapper<>();
@@ -117,7 +122,7 @@ public class SysDepartController extends BaseController {
     @Log(value = "部门删除", exception = "部门删除请求异常")
     @Operation(summary = "部门删除", description = "部门删除")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
     })
     public Result<?> del(@RequestParam String ids) {
         return Result.condition(sysDepartService.removeByIds(CollectionUtil.stringToCollection(ids)));

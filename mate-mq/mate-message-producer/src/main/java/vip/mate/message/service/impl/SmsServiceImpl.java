@@ -15,16 +15,16 @@ import vip.mate.message.service.ISmsService;
 @AllArgsConstructor
 public class SmsServiceImpl implements ISmsService {
 
-	private final StreamBridge streamBridge;
+    private final StreamBridge streamBridge;
 
-	/**
-	 * 采用StreamBridge的发送方式
-	 *
-	 * @param message 　短消息
-	 * @link https://docs.spring.io/spring-cloud-stream/docs/3.1.0/reference/html/spring-cloud-stream.html#_binding_and_binding_names
-	 */
-	@Override
-	public void sendSms(String message) {
-		streamBridge.send(MessageConstant.SMS_MESSAGE_OUTPUT, message);
-	}
+    /**
+     * 采用StreamBridge的发送方式
+     *
+     * @param message 　短消息
+     * @link https://docs.spring.io/spring-cloud-stream/docs/3.1.0/reference/html/spring-cloud-stream.html#_binding_and_binding_names
+     */
+    @Override
+    public void sendSms(String message) {
+        streamBridge.send(MessageConstant.SMS_MESSAGE_OUTPUT, message);
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * 初始化TransmitLocalMDCAdapter，并替换MDC中的adapter对象
+ *
  * @author pangu
  */
 public class TransmitLocalMDCInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {

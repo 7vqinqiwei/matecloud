@@ -12,7 +12,7 @@ import vip.mate.core.feign.annotation.EnableMateFeign;
 @EnableMateFeign
 @SpringBootApplication
 public class SsoApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(SsoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SsoApplication.class, args);
+    }
 }

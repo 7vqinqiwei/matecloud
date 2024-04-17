@@ -30,43 +30,43 @@ import javax.servlet.http.HttpServletRequest;
 @AutoConfigureBefore(SentinelFeignAutoConfiguration.class)
 public class SentinelConfiguration {
 
-	@Bean
-	@Scope("prototype")
-	@ConditionalOnMissingBean
-	@ConditionalOnProperty(name = "feign.sentinel.enabled")
-	public Feign.Builder feignSentinelBuilder() {
-		return MateFeignSentinel.builder();
-	}
+    @Bean
+    @Scope("prototype")
+    @ConditionalOnMissingBean
+    @ConditionalOnProperty(name = "feign.sentinel.enabled")
+    public Feign.Builder feignSentinelBuilder() {
+        return MateFeignSentinel.builder();
+    }
 
-	/**
-	 * 限流、熔断统一处理类
-	 */
-	@Configuration
-	@ConditionalOnClass(HttpServletRequest.class)
-	public static class WebmvcHandler {
-		@Bean
-		public BlockExceptionHandler webmvcBlockExceptionHandler() {
-			return (request, response, e) -> {
-				response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
-				Result<?> result = Result.fail("Too many request, please retry later.");
-				response.getWriter().print(JSONObject.toJSONString(result));
-			};
-		}
+    /**
+     * 限流、熔断统一处理类
+     */
+    @Configuration
+    @ConditionalOnClass(HttpServletRequest.class)
+    public static class WebmvcHandler {
+        @Bean
+        public BlockExceptionHandler webmvcBlockExceptionHandler() {
+            return (request, response, e) -> {
+                response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
+                Result<?> result = Result.fail("Too many request, please retry later.");
+                response.getWriter().print(JSONObject.toJSONString(result));
+            };
+        }
 
-	}
+    }
 
-	/**
-	 * 限流、熔断统一处理类
-	 */
-	@Configuration
-	@ConditionalOnClass(ServerResponse.class)
-	public static class WebfluxHandler {
-		@Bean
-		public BlockRequestHandler webfluxBlockExceptionHandler() {
-			return (exchange, t) ->
-					ServerResponse.status(HttpStatus.TOO_MANY_REQUESTS)
-							.contentType(MediaType.APPLICATION_JSON)
-							.body(BodyInserters.fromValue(Result.fail(t.getMessage())));
-		}
-	}
+    /**
+     * 限流、熔断统一处理类
+     */
+    @Configuration
+    @ConditionalOnClass(ServerResponse.class)
+    public static class WebfluxHandler {
+        @Bean
+        public BlockRequestHandler webfluxBlockExceptionHandler() {
+            return (exchange, t) ->
+                    ServerResponse.status(HttpStatus.TOO_MANY_REQUESTS)
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .body(BodyInserters.fromValue(Result.fail(t.getMessage())));
+        }
+    }
 }

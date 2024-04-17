@@ -1,8 +1,8 @@
 package vip.mate.system.mapper;
 
 import com.baomidou.mybatisplus.annotation.InterceptorIgnore;
-import vip.mate.system.entity.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import vip.mate.system.entity.SysUser;
 
 /**
  * <p>
@@ -17,6 +17,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 忽略租户信息
+     *
      * @param sysUser
      * @return
      */

@@ -40,9 +40,10 @@ public class AliSmsTemplate implements SmsTemplate {
 
     /**
      * 封装公共的request
+     *
      * @return
      */
-    private CommonRequest request(){
+    private CommonRequest request() {
         CommonRequest request = new CommonRequest();
         request.setSysMethod(MethodType.POST);
         request.setSysDomain(smsProperties.getDomain());
@@ -72,8 +73,8 @@ public class AliSmsTemplate implements SmsTemplate {
     @Override
     public String sendRandCode(int digits) {
         StringBuilder sBuilder = new StringBuilder();
-        Random rd = new Random( LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli());
-        for(int i = 0; i < digits; ++i) {
+        Random rd = new Random(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        for (int i = 0; i < digits; ++i) {
             sBuilder.append(rd.nextInt(9));
         }
         return sBuilder.toString();

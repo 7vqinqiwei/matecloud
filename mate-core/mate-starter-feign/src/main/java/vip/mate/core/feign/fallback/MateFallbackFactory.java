@@ -7,6 +7,7 @@ import org.springframework.cloud.openfeign.FallbackFactory;
 
 /**
  * 默认fallback，减少必要的编写fallback类
+ *
  * @param <T>
  */
 @AllArgsConstructor

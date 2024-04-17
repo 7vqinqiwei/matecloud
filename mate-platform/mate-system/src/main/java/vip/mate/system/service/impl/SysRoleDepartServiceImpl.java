@@ -38,16 +38,16 @@ import vip.mate.system.service.ISysRoleDepartService;
 @Service
 public class SysRoleDepartServiceImpl extends ServiceImpl<SysRoleDepartMapper, SysRoleDepart> implements ISysRoleDepartService {
 
-		@Override
-		public IPage<SysRoleDepart> listPage(Search search) {
-			LambdaQueryWrapper<SysRoleDepart> queryWrapper = new LambdaQueryWrapper<>();
-			if (StrUtil.isNotBlank(search.getStartDate())) {
-				queryWrapper.between(SysRoleDepart::getCreateTime, search.getStartDate(), search.getEndDate());
-			}
-			if (StrUtil.isNotBlank(search.getKeyword())) {
-				queryWrapper.like(SysRoleDepart::getId, search.getKeyword());
-			}
-			queryWrapper.orderByDesc(SysRoleDepart::getCreateTime);
-			return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
-		}
+    @Override
+    public IPage<SysRoleDepart> listPage(Search search) {
+        LambdaQueryWrapper<SysRoleDepart> queryWrapper = new LambdaQueryWrapper<>();
+        if (StrUtil.isNotBlank(search.getStartDate())) {
+            queryWrapper.between(SysRoleDepart::getCreateTime, search.getStartDate(), search.getEndDate());
+        }
+        if (StrUtil.isNotBlank(search.getKeyword())) {
+            queryWrapper.like(SysRoleDepart::getId, search.getKeyword());
+        }
+        queryWrapper.orderByDesc(SysRoleDepart::getCreateTime);
+        return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
+    }
 }

@@ -4,6 +4,7 @@ import lombok.experimental.UtilityClass;
 
 /**
  * Feign常量类
+ *
  * @author xuzhanfu
  * @Date 2020-7-1
  */

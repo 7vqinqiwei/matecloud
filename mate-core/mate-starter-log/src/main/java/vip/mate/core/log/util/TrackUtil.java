@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 日志埋点追踪类
+ *
  * @author pangu
  */
 @Slf4j

@@ -7,6 +7,7 @@ import vip.mate.core.rule.service.impl.RuleCacheServiceImpl;
 
 /**
  * 规则配置
+ *
  * @author pangu
  */
 @Configuration

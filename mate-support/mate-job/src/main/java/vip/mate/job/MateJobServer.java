@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class MateJobServer {
-	public static void main(String[] args) {
-		SpringApplication.run(MateJobServer.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MateJobServer.class, args);
+    }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * 字典远程调用
+ *
  * @author pangu
  */
 @Slf4j

@@ -19,16 +19,16 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass({MeterRegistry.class})
 public class PrometheusConfiguration implements CommandLineRunner {
 
-	@Value("${spring.application.name}")
-	private String applicationName;
+    @Value("${spring.application.name}")
+    private String applicationName;
 
-	@Bean
-	MeterRegistryCustomizer<MeterRegistry> appMetricsCommonTags() {
-		return registry -> registry.config().commonTags("application", applicationName);
-	}
+    @Bean
+    MeterRegistryCustomizer<MeterRegistry> appMetricsCommonTags() {
+        return registry -> registry.config().commonTags("application", applicationName);
+    }
 
-	@Override
-	public void run(String... args) {
-		log.info("matecloud prometheus startup successfully! ");
-	}
+    @Override
+    public void run(String... args) {
+        log.info("matecloud prometheus startup successfully! ");
+    }
 }

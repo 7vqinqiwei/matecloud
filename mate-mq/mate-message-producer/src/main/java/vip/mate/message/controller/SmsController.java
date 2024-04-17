@@ -16,19 +16,19 @@ import vip.mate.message.service.ITransactionOrderService;
 @AllArgsConstructor
 public class SmsController {
 
-	private final ISmsService smsService;
+    private final ISmsService smsService;
 
-	private final ITransactionOrderService transactionOrderService;
+    private final ITransactionOrderService transactionOrderService;
 
-	@GetMapping("/send/sms")
-	public Result<?> sendSms(String message) {
-		smsService.sendSms(message);
-		return Result.success("操作成功");
-	}
+    @GetMapping("/send/sms")
+    public Result<?> sendSms(String message) {
+        smsService.sendSms(message);
+        return Result.success("操作成功");
+    }
 
-	@GetMapping("/send/order")
-	public Result<?> sendOrder() {
-		transactionOrderService.testStreamTransaction();
-		return Result.success("操作成功");
-	}
+    @GetMapping("/send/order")
+    public Result<?> sendOrder() {
+        transactionOrderService.testStreamTransaction();
+        return Result.success("操作成功");
+    }
 }

@@ -19,16 +19,16 @@ import vip.mate.seata.user.service.IUserService;
 @RestController
 @RequiredArgsConstructor
 public class UserController {
-	private final IUserService userService;
-	private final OrderProvider orderProvider;
-	private final PointProvider pointProvider;
+    private final IUserService userService;
+    private final OrderProvider orderProvider;
+    private final PointProvider pointProvider;
 
-	@GlobalTransactional(rollbackFor = Exception.class)
-	@PostMapping("/user")
-	public Result<String> createUser(@RequestBody User user) {
-		userService.saveOrUpdate(user);
-		pointProvider.createPoint();
-		orderProvider.createOrder();
-		return Result.condition(Boolean.TRUE);
-	}
+    @GlobalTransactional(rollbackFor = Exception.class)
+    @PostMapping("/user")
+    public Result<String> createUser(@RequestBody User user) {
+        userService.saveOrUpdate(user);
+        pointProvider.createPoint();
+        orderProvider.createOrder();
+        return Result.condition(Boolean.TRUE);
+    }
 }

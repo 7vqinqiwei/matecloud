@@ -34,12 +34,12 @@ interface ${table.serviceName} : ${superServiceClass}<${entity}>
 #else
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
-	/**
-     * 分页业务方法
-     * @param search　搜索参数
-     * @return IPage
-     */
-	IPage<$!{entity}> listPage(Search search);
+        /**
+         * 分页业务方法
+         * @param search　搜索参数
+         * @return IPage
+         */
+        IPage<$!{entity}> listPage(Search search);
 
-}
+        }
 #end

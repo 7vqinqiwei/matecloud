@@ -15,11 +15,11 @@ import vip.mate.system.entity.SysLog;
  */
 public interface ISysLogService extends IService<SysLog> {
 
-	/**
-	 * 日志分页列表
-	 *
-	 * @param search 搜索和分页对象
-	 * @return 日志分页列表
-	 */
-	IPage<SysLog> listPage(Search search);
+    /**
+     * 日志分页列表
+     *
+     * @param search 搜索和分页对象
+     * @return 日志分页列表
+     */
+    IPage<SysLog> listPage(Search search);
 }

@@ -18,13 +18,13 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class DataScope extends HashMap {
 
-	/**
-	 * 限制范围的字段名称
-	 */
-	private String scopeName = "depart_id";
+    /**
+     * 限制范围的字段名称
+     */
+    private String scopeName = "depart_id";
 
-	/**
-	 * 具体的数据范围
-	 */
-	private List<Integer> departIds = new ArrayList<>();
+    /**
+     * 具体的数据范围
+     */
+    private List<Integer> departIds = new ArrayList<>();
 }

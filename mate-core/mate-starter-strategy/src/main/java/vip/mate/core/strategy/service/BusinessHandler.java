@@ -8,11 +8,11 @@ package vip.mate.core.strategy.service;
  */
 public interface BusinessHandler<R, T> {
 
-	/**
-	 * 业务处理
-	 *
-	 * @param t 业务实体返回参数
-	 * @return R　结果
-	 */
-	R businessHandler(T t);
+    /**
+     * 业务处理
+     *
+     * @param t 业务实体返回参数
+     * @return R　结果
+     */
+    R businessHandler(T t);
 }

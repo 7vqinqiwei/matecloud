@@ -17,8 +17,8 @@ import vip.mate.core.gray.fegin.GrayFeignRequestInterceptor;
 @ConditionalOnProperty(value = "gray.rule.enabled", havingValue = "true")
 @LoadBalancerClients(defaultConfiguration = GrayLoadbalancerConfig.class)
 public class GrayConfig {
-	@Bean
-	public RequestInterceptor grayFeignRequestInterceptor() {
-		return new GrayFeignRequestInterceptor();
-	}
+    @Bean
+    public RequestInterceptor grayFeignRequestInterceptor() {
+        return new GrayFeignRequestInterceptor();
+    }
 }

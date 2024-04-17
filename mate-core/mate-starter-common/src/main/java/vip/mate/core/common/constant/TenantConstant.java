@@ -2,6 +2,7 @@ package vip.mate.core.common.constant;
 
 /**
  * 多租户常量
+ *
  * @author pangu
  * @date 2020-9-7
  */

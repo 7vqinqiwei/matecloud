@@ -1,7 +1,9 @@
 ## 部署脚本说明
 
 ## docker-standalone ---mac系统本地化脚本
+
 已在mac系统上进行测试验证，支持docker-compose一键部署
+
 - nacos 2.0.0
 - mysql 8.0.21
 - redis 6.0.9
@@ -10,12 +12,15 @@
 ### 操作命令
 
 - 启动
+
 ```bash
 cd doc/deploy/docker-standalone
 
 docker-compose up -d
 ```
+
 - 其他
+
 ```bash
 # 关闭
 docker-compose stop

@@ -9,15 +9,16 @@ import vip.mate.core.web.handler.BaseExceptionHandler;
 
 /**
  * 统一异常处理配置
+ *
  * @author xuzhanfu
  */
 @AutoConfiguration
-@ComponentScan(value="vip.mate.core.web.handler")
+@ComponentScan(value = "vip.mate.core.web.handler")
 @PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:mate-error.yml")
 public class ExceptionConfiguration {
 
     @Bean
-    public BaseExceptionHandler baseExceptionHandler(){
+    public BaseExceptionHandler baseExceptionHandler() {
         return new BaseExceptionHandler();
     }
 }

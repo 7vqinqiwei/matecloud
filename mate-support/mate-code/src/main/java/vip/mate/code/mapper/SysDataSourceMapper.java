@@ -2,7 +2,6 @@ package vip.mate.code.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import vip.mate.code.entity.SysDataSource;
-import vip.mate.code.vo.SysDataSourceVO;
 import vip.mate.core.common.vo.BaseListVO;
 
 import java.util.List;

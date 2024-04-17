@@ -4,10 +4,10 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
-@ConfigurationProperties(prefix= SmsProperties.PREFIX )
+@ConfigurationProperties(prefix = SmsProperties.PREFIX)
 public class SmsProperties {
 
-    public static final String PREFIX="sms.ali";
+    public static final String PREFIX = "sms.ali";
 
     /**
      * 短信API产品名称

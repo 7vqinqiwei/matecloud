@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * social的配置参数
+ *
  * @author xuzf
  * @since 2020-07-26
  */

@@ -12,8 +12,8 @@ import lombok.Data;
 @Data
 @TableName("mate_demo_user")
 public class User {
-	@TableId
-	Integer id;
-	String name;
-	int age;
+    @TableId
+    Integer id;
+    String name;
+    int age;
 }

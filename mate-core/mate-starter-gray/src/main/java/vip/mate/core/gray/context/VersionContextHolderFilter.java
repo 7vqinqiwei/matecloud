@@ -25,15 +25,15 @@ import javax.servlet.http.HttpServletResponse;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class VersionContextHolderFilter extends GenericFilterBean {
 
-	@Override
-	@SneakyThrows
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) {
-		HttpServletRequest request = (HttpServletRequest) servletRequest;
-		HttpServletResponse response = (HttpServletResponse) servletResponse;
-		String version = request.getHeader(MateConstant.VERSION);
-		log.debug("获取header中的VERSION为:{}", version);
-		VersionContextHolder.setVersion(version);
-		filterChain.doFilter(request, response);
-		VersionContextHolder.clear();
-	}
+    @Override
+    @SneakyThrows
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        String version = request.getHeader(MateConstant.VERSION);
+        log.debug("获取header中的VERSION为:{}", version);
+        VersionContextHolder.setVersion(version);
+        filterChain.doFilter(request, response);
+        VersionContextHolder.clear();
+    }
 }

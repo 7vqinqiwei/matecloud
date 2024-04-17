@@ -21,33 +21,33 @@ import java.util.List;
 @Component
 public class IgnoreUrlPropsConfiguration {
 
-	/**
-	 * 认证中心默认忽略验证地址
-	 */
-	private static final String[] SECURITY_ENDPOINTS = {
-			"/auth/**",
-			"/oauth/token",
-			"/login/*",
-			"/actuator/**",
-			"/v2/api-docs",
-			"/v3/api-docs",
-			"/doc.html",
-			"/webjars/**",
-			"**/favicon.ico",
-			"/swagger-resources/**"
-	};
+    /**
+     * 认证中心默认忽略验证地址
+     */
+    private static final String[] SECURITY_ENDPOINTS = {
+            "/auth/**",
+            "/oauth/token",
+            "/login/*",
+            "/actuator/**",
+            "/v2/api-docs",
+            "/v3/api-docs",
+            "/doc.html",
+            "/webjars/**",
+            "**/favicon.ico",
+            "/swagger-resources/**"
+    };
 
-	private List<String> urls = new ArrayList<>();
+    private List<String> urls = new ArrayList<>();
 
-	private List<String> client = new ArrayList<>();
-	private List<String> ignoreSecurity = new ArrayList<>();
+    private List<String> client = new ArrayList<>();
+    private List<String> ignoreSecurity = new ArrayList<>();
 
-	/**
-	 * 首次加载合并ENDPOINTS
-	 */
-	@PostConstruct
-	public void initIgnoreSecurity() {
-		Collections.addAll(ignoreSecurity, SECURITY_ENDPOINTS);
-	}
+    /**
+     * 首次加载合并ENDPOINTS
+     */
+    @PostConstruct
+    public void initIgnoreSecurity() {
+        Collections.addAll(ignoreSecurity, SECURITY_ENDPOINTS);
+    }
 
 }

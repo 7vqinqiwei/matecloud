@@ -27,10 +27,10 @@ import vip.mate.core.mybatis.injector.MateSqlMethod;
  * @author L.cm
  */
 public class ReplaceBatch extends AbstractInsertBatch {
-	private static final String SQL_METHOD = "replaceBatch";
+    private static final String SQL_METHOD = "replaceBatch";
 
-	public ReplaceBatch() {
-		super(MateSqlMethod.REPLACE_ONE.getSql(), SQL_METHOD);
-	}
+    public ReplaceBatch() {
+        super(MateSqlMethod.REPLACE_ONE.getSql(), SQL_METHOD);
+    }
 }
 

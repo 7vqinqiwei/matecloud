@@ -28,6 +28,7 @@ import java.util.Set;
 
 /**
  * SGW Sentinel配置
+ *
  * @author pangu
  */
 @Configuration
@@ -38,7 +39,7 @@ public class SentinelConfig {
     private final ServerCodecConfigurer serverCodecConfigurer;
 
     public SentinelConfig(ObjectProvider<List<ViewResolver>> viewResolversProvider,
-                                ServerCodecConfigurer serverCodecConfigurer) {
+                          ServerCodecConfigurer serverCodecConfigurer) {
         this.viewResolvers = viewResolversProvider.getIfAvailable(Collections::emptyList);
         this.serverCodecConfigurer = serverCodecConfigurer;
     }

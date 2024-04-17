@@ -16,9 +16,9 @@
  */
 package vip.mate.code.service;
 
-import vip.mate.code.entity.Column;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.IService;
+import vip.mate.code.entity.Column;
 import vip.mate.core.database.entity.Search;
 
 /**
@@ -31,11 +31,12 @@ import vip.mate.core.database.entity.Search;
  */
 public interface IColumnService extends IService<Column> {
 
-	/**
+    /**
      * 分页业务方法
-     * @param search　搜索参数
+     *
+     * @param search 　搜索参数
      * @return IPage
      */
-	IPage<Column> listPage(Search search);
+    IPage<Column> listPage(Search search);
 
 }

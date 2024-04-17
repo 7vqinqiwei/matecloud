@@ -9,9 +9,9 @@ services:
       - ./data/logs:/opt/logs
       - ./data/store:/opt/store
     networks:
-        rmq:
-          aliases:
-            - rmqnamesrv
+      rmq:
+        aliases:
+          - rmqnamesrv
 
   rmqbroker:
     image: foxiswho/rocketmq:broker
@@ -24,9 +24,9 @@ services:
       - ./data/store:/opt/store
       - ./data/brokerconf/broker.conf:/etc/rocketmq/broker.conf
     environment:
-        NAMESRV_ADDR: "rmqnamesrv:9876"
-        JAVA_OPTS: " -Duser.home=/opt"
-        JAVA_OPT_EXT: "-server -Xms128m -Xmx128m -Xmn128m"
+      NAMESRV_ADDR: "rmqnamesrv:9876"
+      JAVA_OPTS: " -Duser.home=/opt"
+      JAVA_OPT_EXT: "-server -Xms128m -Xmx128m -Xmn128m"
     command: mqbroker -c /etc/rocketmq/broker.conf
     depends_on:
       - rmqnamesrv
@@ -41,7 +41,7 @@ services:
     ports:
       - 8080:8080
     environment:
-        JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
     depends_on:
       - rmqnamesrv
     networks:

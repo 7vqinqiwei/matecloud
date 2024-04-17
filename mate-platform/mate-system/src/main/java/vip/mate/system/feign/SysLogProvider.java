@@ -16,6 +16,7 @@ import vip.mate.system.service.ISysLogService;
 
 /**
  * 日志远程调用
+ *
  * @author pangu
  */
 @Slf4j

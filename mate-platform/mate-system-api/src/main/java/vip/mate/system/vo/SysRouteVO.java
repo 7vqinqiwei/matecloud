@@ -13,6 +13,6 @@ import java.io.Serializable;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SysRouteVO implements Serializable {
-	private Long id;
-	private String name;
+    private Long id;
+    private String name;
 }

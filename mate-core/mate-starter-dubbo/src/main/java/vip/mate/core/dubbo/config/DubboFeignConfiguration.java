@@ -16,7 +16,9 @@ import org.springframework.core.env.Environment;
 import java.util.Set;
 
 import static java.util.Collections.emptySet;
-import static org.apache.dubbo.spring.boot.util.DubboUtils.*;
+import static org.apache.dubbo.spring.boot.util.DubboUtils.BASE_PACKAGES_PROPERTY_NAME;
+import static org.apache.dubbo.spring.boot.util.DubboUtils.DUBBO_PREFIX;
+import static org.apache.dubbo.spring.boot.util.DubboUtils.DUBBO_SCAN_PREFIX;
 
 /**
  * Dubbo配置

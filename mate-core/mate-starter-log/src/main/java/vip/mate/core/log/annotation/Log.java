@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * 日志注解类
+ *
  * @author pangu
  */
 @Target(ElementType.METHOD)
@@ -14,5 +15,6 @@ import java.lang.annotation.Target;
 public @interface Log {
 
     String value() default "";
+
     String exception() default "MateCloud系统内部异常";
 }

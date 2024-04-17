@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * 字典远程调用接口类
+ *
  * @author pangu
  */
 @FeignClient(value = FeignConstant.MATE_CLOUD_SYSTEM)
@@ -19,7 +20,8 @@ public interface ISysDictProvider {
 
     /**
      * 根据code和dictKey获取值
-     * @param code code
+     *
+     * @param code    code
      * @param dictKey key
      * @return Result
      */
@@ -28,7 +30,8 @@ public interface ISysDictProvider {
 
     /**
      * 根据code获取字典列表
-     * @param code　code
+     *
+     * @param code 　code
      * @return Result
      */
     @GetMapping(ProviderConstant.PROVIDER_DICT_LIST)

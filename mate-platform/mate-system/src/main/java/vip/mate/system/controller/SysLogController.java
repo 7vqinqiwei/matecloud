@@ -7,7 +7,11 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.database.entity.Search;
@@ -34,7 +38,8 @@ public class SysLogController extends BaseController {
 
     /**
      * 日志分页列表
-     * @param search　搜索关键词
+     *
+     * @param search 　搜索关键词
      * @return Result
      */
     @PreAuth
@@ -42,13 +47,13 @@ public class SysLogController extends BaseController {
     @GetMapping("/page")
     @Operation(summary = "日志列表", description = "日志列表")
     @Parameters({
-            @Parameter(name = "current", required = true,  description = "当前页", in = ParameterIn.DEFAULT),
-            @Parameter(name = "size", required = true,  description = "每页显示数据", in = ParameterIn.DEFAULT),
-            @Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-            @Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-            @Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
-            @Parameter(name = "prop", required = true,  description = "排序属性", in = ParameterIn.DEFAULT),
-            @Parameter(name = "order", required = true,  description = "排序方式", in = ParameterIn.DEFAULT),
+            @Parameter(name = "current", required = true, description = "当前页", in = ParameterIn.DEFAULT),
+            @Parameter(name = "size", required = true, description = "每页显示数据", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "prop", required = true, description = "排序属性", in = ParameterIn.DEFAULT),
+            @Parameter(name = "order", required = true, description = "排序方式", in = ParameterIn.DEFAULT),
     })
     public Result<?> page(Search search) {
         return Result.data(sysLogService.listPage(search));
@@ -56,7 +61,8 @@ public class SysLogController extends BaseController {
 
     /**
      * 日志删除
-     * @param ids　多个id采用逗号分隔
+     *
+     * @param ids 　多个id采用逗号分隔
      * @return Result
      */
     @PreAuth(hasPerm = "sys:log:delete")
@@ -64,7 +70,7 @@ public class SysLogController extends BaseController {
     @PostMapping("/del")
     @Operation(summary = "日志删除", description = "日志删除")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
     })
     public Result<?> del(@RequestParam String ids) {
         return Result.condition(sysLogService.removeByIds(CollectionUtil.stringToCollection(ids)));

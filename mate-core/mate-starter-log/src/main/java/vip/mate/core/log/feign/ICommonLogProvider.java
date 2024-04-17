@@ -8,6 +8,7 @@ import vip.mate.core.feign.constant.FeignConstant;
 
 /**
  * 普通日志生产消息调用
+ *
  * @author pangu
  */
 
@@ -16,6 +17,7 @@ public interface ICommonLogProvider {
 
     /**
      * 向消息中心发送消息
+     *
      * @param commonLog 普通日志
      * @return 状态
      */

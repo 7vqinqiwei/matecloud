@@ -18,49 +18,49 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @ConfigurationProperties(prefix = "mate.swagger")
 public class MateSwaggerProperties {
 
-	/**
-	 * 是否启用Swagger
-	 */
-	private boolean enable;
+    /**
+     * 是否启用Swagger
+     */
+    private boolean enable;
 
-	/**
-	 * 扫描的基本包
-	 */
-	private String basePackage;
+    /**
+     * 扫描的基本包
+     */
+    private String basePackage;
 
-	/**
-	 * ApiInfo标题
-	 */
-	private String title;
+    /**
+     * ApiInfo标题
+     */
+    private String title;
 
-	/**
-	 * ApiInfo描述
-	 */
-	private String description;
+    /**
+     * ApiInfo描述
+     */
+    private String description;
 
-	/**
-	 * ApiInfo版权信息
-	 */
-	private String license;
+    /**
+     * ApiInfo版权信息
+     */
+    private String license;
 
-	/**
-	 * ApiInfo协议地址
-	 */
-	private String serviceUrl;
+    /**
+     * ApiInfo协议地址
+     */
+    private String serviceUrl;
 
-	/**
-	 * 联系人姓名
-	 */
-	private String contactName;
+    /**
+     * 联系人姓名
+     */
+    private String contactName;
 
-	/**
-	 * 联系人URL
-	 */
-	private String contactUrl;
+    /**
+     * 联系人URL
+     */
+    private String contactUrl;
 
-	/**
-	 * 联系人邮箱
-	 */
-	private String contactEmail;
+    /**
+     * 联系人邮箱
+     */
+    private String contactEmail;
 
 }

@@ -15,13 +15,13 @@ import vip.mate.system.entity.SysBlacklist;
  */
 public interface ISysBlacklistService extends IService<SysBlacklist> {
 
-	/**
-	 * 黑名单分页列表
-	 *
-	 * @param search 搜索关键词
-	 * @return 分页列表
-	 */
-	IPage<SysBlacklist> listPage(Search search);
+    /**
+     * 黑名单分页列表
+     *
+     * @param search 搜索关键词
+     * @return 分页列表
+     */
+    IPage<SysBlacklist> listPage(Search search);
 
-	boolean status(String ids, String status);
+    boolean status(String ids, String status);
 }

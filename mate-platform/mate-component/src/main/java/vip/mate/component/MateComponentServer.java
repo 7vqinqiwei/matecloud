@@ -22,6 +22,7 @@ import vip.mate.core.feign.annotation.EnableMateFeign;
 
 /**
  * 系统组件启动类
+ *
  * @author pangu
  */
 @EnableMateFeign

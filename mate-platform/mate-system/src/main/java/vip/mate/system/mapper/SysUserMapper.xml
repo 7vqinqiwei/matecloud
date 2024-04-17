@@ -28,10 +28,12 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,tenant_id,account,password,name,real_name,avatar,email,telephone,birthday,sex,role_id,depart_id,status,is_deleted,create_by,update_by,create_time,update_time
+        id
+        ,tenant_id,account,password,name,real_name,avatar,email,telephone,birthday,sex,role_id,depart_id,status,is_deleted,create_by,update_by,create_time,update_time
     </sql>
     <select id="selectOneIgnoreTenant" resultMap="BaseResultMap" parameterType="vip.mate.system.entity.SysUser">
-        SELECT <include refid="Base_Column_List" />
+        SELECT
+        <include refid="Base_Column_List"/>
         FROM mate_sys_user
         <trim prefix="where" prefixOverrides="and|or">
             <if test="account != null and account != ''">

@@ -17,23 +17,23 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RedisConnectionType {
-	/**
-	 * 单节点部署方式
-	 */
-	STANDALONE("standalone", "单节点部署方式"),
-	/**
-	 * 哨兵部署方式
-	 */
-	SENTINEL("sentinel", "哨兵部署方式"),
-	/**
-	 * 集群部署方式
-	 */
-	CLUSTER("cluster", "集群方式"),
-	/**
-	 * 主从部署方式
-	 */
-	MASTERSLAVE("masterslave", "主从部署方式");
+    /**
+     * 单节点部署方式
+     */
+    STANDALONE("standalone", "单节点部署方式"),
+    /**
+     * 哨兵部署方式
+     */
+    SENTINEL("sentinel", "哨兵部署方式"),
+    /**
+     * 集群部署方式
+     */
+    CLUSTER("cluster", "集群方式"),
+    /**
+     * 主从部署方式
+     */
+    MASTERSLAVE("masterslave", "主从部署方式");
 
-	private final String connection_type;
-	private final String connection_desc;
+    private final String connection_type;
+    private final String connection_desc;
 }

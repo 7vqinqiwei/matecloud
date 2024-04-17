@@ -17,8 +17,8 @@ import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecur
 @ConditionalOnProperty(value = "mate.security.enable", havingValue = "true", matchIfMissing = true)
 public class MateSecurityConfig extends GlobalMethodSecurityConfiguration {
 
-	@Override
-	protected MethodSecurityExpressionHandler createExpressionHandler() {
-		return new OAuth2MethodSecurityExpressionHandler();
-	}
+    @Override
+    protected MethodSecurityExpressionHandler createExpressionHandler() {
+        return new OAuth2MethodSecurityExpressionHandler();
+    }
 }

@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class MateMessageConsumerServer {
-	public static void main(String[] args) {
-		SpringApplication.run(MateMessageConsumerServer.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MateMessageConsumerServer.class, args);
+    }
 }

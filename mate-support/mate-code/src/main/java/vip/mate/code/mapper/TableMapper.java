@@ -16,10 +16,10 @@
  */
 package vip.mate.code.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Param;
 import vip.mate.code.entity.Table;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import vip.mate.code.vo.ColumnInfoVO;
 import vip.mate.code.vo.TableInfoVO;
 
@@ -54,6 +54,7 @@ public interface TableMapper extends BaseMapper<Table> {
 
     /**
      * 查询列信息
+     *
      * @param tableName 表名
      * @return List<ColumnInfo>
      */

@@ -13,12 +13,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ConfigurationProperties(MateRedisProperties.PREFIX)
 public class MateRedisProperties {
-	/**
-	 * 前缀
-	 */
-	public static final String PREFIX = "mate.lettuce.redis";
-	/**
-	 * 是否开启Lettuce
-	 */
-	private Boolean enable = true;
+    /**
+     * 前缀
+     */
+    public static final String PREFIX = "mate.lettuce.redis";
+    /**
+     * 是否开启Lettuce
+     */
+    private Boolean enable = true;
 }

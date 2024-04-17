@@ -1,6 +1,11 @@
 package vip.mate.core.rocketmq.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -21,20 +26,20 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = false)
 public class Order implements Serializable {
 
-	private static final long serialVersionUID = 2011242218927120008L;
+    private static final long serialVersionUID = 2011242218927120008L;
 
-	private Long id;
+    private Long id;
 
-	private Long tradeId;
+    private Long tradeId;
 
-	private Long goodsId;
+    private Long goodsId;
 
-	private BigDecimal goodsPrice;
+    private BigDecimal goodsPrice;
 
-	private Integer number;
+    private Integer number;
 
-	private LocalDateTime createTime;
+    private LocalDateTime createTime;
 
-	private LocalDateTime updateTime;
+    private LocalDateTime updateTime;
 
 }

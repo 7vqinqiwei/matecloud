@@ -18,18 +18,18 @@ import java.util.concurrent.ConcurrentHashMap;
 @AllArgsConstructor
 public class DataScopeContext {
 
-	private final Map<String, AbstractDataScopeHandler> strategyMap = new ConcurrentHashMap<>();
+    private final Map<String, AbstractDataScopeHandler> strategyMap = new ConcurrentHashMap<>();
 
-	/**
-	 * Component里边的1是指定其名字，这个会作为key放到strategyMap里
-	 *
-	 * @param strategyMap
-	 */
-	public DataScopeContext(Map<String, AbstractDataScopeHandler> strategyMap) {
-		strategyMap.forEach(this.strategyMap::put);
-	}
+    /**
+     * Component里边的1是指定其名字，这个会作为key放到strategyMap里
+     *
+     * @param strategyMap
+     */
+    public DataScopeContext(Map<String, AbstractDataScopeHandler> strategyMap) {
+        strategyMap.forEach(this.strategyMap::put);
+    }
 
-	public List<Long> getDeptIdsForDataScope(RoleDTO roleDto, Integer type) {
-		return strategyMap.get(String.valueOf(type)).getDeptIds(roleDto, DataScopeTypeEnum.valueOf(type));
-	}
+    public List<Long> getDeptIdsForDataScope(RoleDTO roleDto, Integer type) {
+        return strategyMap.get(String.valueOf(type)).getDeptIds(roleDto, DataScopeTypeEnum.valueOf(type));
+    }
 }

@@ -11,16 +11,16 @@ import vip.mate.seata.point.service.IPointService;
 @RequiredArgsConstructor
 public class PointController {
 
-	private final IPointService pointService;
+    private final IPointService pointService;
 
-	/**
-	 * 创建积分
-	 */
-	@Transactional(rollbackFor = Exception.class)
-	@PostMapping("/point")
-	public void setPoint() {
-		Point point = new Point();
-		point.setCount(10);
-		pointService.saveOrUpdate(point);
-	}
+    /**
+     * 创建积分
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @PostMapping("/point")
+    public void setPoint() {
+        Point point = new Point();
+        point.setCount(10);
+        pointService.saveOrUpdate(point);
+    }
 }

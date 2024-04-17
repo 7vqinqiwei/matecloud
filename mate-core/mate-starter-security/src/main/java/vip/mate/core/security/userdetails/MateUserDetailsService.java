@@ -6,12 +6,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * 用户详细扩展
+ *
  * @author pangu
  */
 public interface MateUserDetailsService extends UserDetailsService {
 
     /**
      * 根据手机号登录
+     *
      * @param mobile
      * @return UserDetails
      * @throws UsernameNotFoundException
@@ -20,6 +22,7 @@ public interface MateUserDetailsService extends UserDetailsService {
 
     /**
      * 根据社交账号登录
+     *
      * @param openId 第三方的绑定的openId
      * @return
      * @throws UsernameNotFoundException

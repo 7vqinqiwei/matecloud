@@ -22,17 +22,18 @@ import static io.undertow.UndertowOptions.ENABLE_HTTP2;
 @AutoConfigureBefore(ServletWebServerFactoryAutoConfiguration.class)
 public class UndertowHttp2Configuration {
 
-	@Bean
-	public WebServerFactoryCustomizer<UndertowServletWebServerFactory> undertowHttp2WebServerFactoryCustomizer() {
-		return factory -> factory.addBuilderCustomizers(builder -> builder.setServerOption(ENABLE_HTTP2, true));
-	}
+    @Bean
+    public WebServerFactoryCustomizer<UndertowServletWebServerFactory> undertowHttp2WebServerFactoryCustomizer() {
+        return factory -> factory.addBuilderCustomizers(builder -> builder.setServerOption(ENABLE_HTTP2, true));
+    }
 
-	/**
-	 * 实例化UndertowServerFactoryCustomizer，解决undertow启动提示warn的问题
-	 * @return UndertowServerFactoryCustomizer
-	 */
-	@Bean
-	public UndertowServerFactoryCustomizer undertowServerFactoryCustomizer() {
-		return new UndertowServerFactoryCustomizer();
-	}
+    /**
+     * 实例化UndertowServerFactoryCustomizer，解决undertow启动提示warn的问题
+     *
+     * @return UndertowServerFactoryCustomizer
+     */
+    @Bean
+    public UndertowServerFactoryCustomizer undertowServerFactoryCustomizer() {
+        return new UndertowServerFactoryCustomizer();
+    }
 }

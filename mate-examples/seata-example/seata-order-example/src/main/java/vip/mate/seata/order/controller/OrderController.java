@@ -15,14 +15,14 @@ import vip.mate.seata.order.service.IOrderService;
 @RestController
 @RequiredArgsConstructor
 public class OrderController {
-	private final IOrderService orderService;
+    private final IOrderService orderService;
 
-	@Transactional(rollbackFor = Exception.class)
-	@PostMapping("/order")
-	public void createOrder() {
-		Order order = new Order();
-		int a = 1 / 0;
-		order.setMoney(100);
-		orderService.save(order);
-	}
+    @Transactional(rollbackFor = Exception.class)
+    @PostMapping("/order")
+    public void createOrder() {
+        Order order = new Order();
+        int a = 1 / 0;
+        order.setMoney(100);
+        orderService.save(order);
+    }
 }

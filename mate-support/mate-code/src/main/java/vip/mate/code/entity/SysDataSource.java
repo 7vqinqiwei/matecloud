@@ -21,7 +21,7 @@ import vip.mate.core.database.entity.BaseEntity;
 @TableName("mate_sys_data_source")
 public class SysDataSource extends BaseEntity {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 名称

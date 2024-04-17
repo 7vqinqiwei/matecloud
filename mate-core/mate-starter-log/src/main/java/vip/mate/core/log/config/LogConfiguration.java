@@ -16,6 +16,7 @@ import vip.mate.core.log.props.LogType;
 
 /**
  * 日志配置中心
+ *
  * @author pangu
  */
 @EnableAsync
@@ -40,7 +41,7 @@ public class LogConfiguration {
     }
 
     @Bean
-    public LogAspect logAspect(ApplicationContext applicationContext){
+    public LogAspect logAspect(ApplicationContext applicationContext) {
         return new LogAspect(applicationContext);
     }
 }

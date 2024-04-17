@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @FeignClient("seata-order-example")
 public interface OrderProvider {
-	/**
-	 * 创建订单
-	 */
-	@PostMapping("/order")
-	public void createOrder();
+    /**
+     * 创建订单
+     */
+    @PostMapping("/order")
+    public void createOrder();
 }

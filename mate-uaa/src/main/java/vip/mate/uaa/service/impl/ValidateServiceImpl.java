@@ -1,13 +1,13 @@
 package vip.mate.uaa.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.cola.biz.exception.CaptchaException;
 import com.wf.captcha.ArithmeticCaptcha;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.common.constant.Oauth2Constant;
-import vip.mate.core.common.exception.CaptchaException;
 import vip.mate.core.redis.core.RedisService;
 import vip.mate.uaa.service.ValidateService;
 
@@ -18,6 +18,7 @@ import java.util.UUID;
 
 /**
  * 验证码业务类
+ *
  * @author pangu
  */
 @Slf4j
@@ -30,7 +31,7 @@ public class ValidateServiceImpl implements ValidateService {
     @Override
     public Result<?> getCode() {
         Map<String, String> data = new HashMap<>(2);
-        String uuid = UUID.randomUUID().toString().replace("-","");
+        String uuid = UUID.randomUUID().toString().replace("-", "");
         //SpecCaptcha captcha = new SpecCaptcha(120, 40);
         //String text = captcha.text();// 获取运算的结果：5
         ArithmeticCaptcha captcha = new ArithmeticCaptcha(120, 40);

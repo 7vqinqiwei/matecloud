@@ -10,5 +10,5 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class DepartDTO extends SysDepart {
 
-	private List<DepartDTO> children;
+    private List<DepartDTO> children;
 }

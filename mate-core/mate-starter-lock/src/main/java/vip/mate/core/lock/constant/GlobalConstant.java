@@ -12,11 +12,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum GlobalConstant {
 
-	/**
-	 * Redis地址连接前缀
-	 */
-	REDIS_CONNECTION_PREFIX("redis://", "Redis地址配置前缀");
+    /**
+     * Redis地址连接前缀
+     */
+    REDIS_CONNECTION_PREFIX("redis://", "Redis地址配置前缀");
 
-	private final String constant_value;
-	private final String constant_desc;
+    private final String constant_value;
+    private final String constant_desc;
 }

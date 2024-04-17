@@ -1,5 +1,6 @@
 package vip.mate.core.cloud.filter;
 
+import com.wayne.context.TenantContext;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
@@ -7,7 +8,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 import vip.mate.core.common.constant.TenantConstant;
-import vip.mate.core.common.context.TenantContextHolder;
 import vip.mate.core.common.entity.LoginUser;
 import vip.mate.core.common.util.SecurityUtil;
 import vip.mate.core.common.util.StringUtil;
@@ -22,6 +22,7 @@ import java.io.IOException;
 
 /**
  * 租户上下文过滤器
+ *
  * @author pangu
  * @date 2020-9-7
  */
@@ -49,15 +50,15 @@ public class TenantContextHolderFilter extends GenericFilterBean {
             }
             log.info("获取到的租户ID为:{}", tenantId);
             if (StringUtil.isNotBlank(tenantId)) {
-                TenantContextHolder.setTenantId(tenantId);
+                TenantContext.set(tenantId);
             } else {
-                if (StringUtil.isBlank(TenantContextHolder.getTenantId())) {
-                    TenantContextHolder.setTenantId(TenantConstant.TENANT_ID_DEFAULT);
+                if (StringUtil.isBlank(TenantContext.get())) {
+                    TenantContext.set(TenantConstant.TENANT_ID_DEFAULT);
                 }
             }
             filterChain.doFilter(request, response);
         } finally {
-            TenantContextHolder.clear();
+            TenantContext.clear();
         }
     }
 }

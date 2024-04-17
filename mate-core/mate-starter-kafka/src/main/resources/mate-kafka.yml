@@ -5,15 +5,15 @@ spring:
       bindings:
         log-in-0:
           destination: mate-log
-#          producer:
-#            headerMode: none
+          #          producer:
+          #            headerMode: none
           content-type: text/plain
         log-out-0:
           destination: mate-log
-#          consumer:
-#            headerMode: none
+          #          consumer:
+          #            headerMode: none
           content-type: application/json
-#      default-binder: kafka
+      #      default-binder: kafka
       kafka:
         binder:
           brokers: localhost:9092

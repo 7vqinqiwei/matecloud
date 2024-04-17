@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class MateJobHandler {
 
-	@XxlJob(value = "demoJobHandler")
-	public ReturnT<?> demoJobHandler() {
-		log.error("测试定时任务");
-		return ReturnT.SUCCESS;
-	}
+    @XxlJob(value = "demoJobHandler")
+    public ReturnT<?> demoJobHandler() {
+        log.error("测试定时任务");
+        return ReturnT.SUCCESS;
+    }
 
 }

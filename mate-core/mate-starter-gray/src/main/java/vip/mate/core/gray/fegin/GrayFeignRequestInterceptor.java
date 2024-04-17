@@ -14,12 +14,12 @@ import vip.mate.core.gray.context.VersionContextHolder;
  */
 @Slf4j
 public class GrayFeignRequestInterceptor implements RequestInterceptor {
-	@Override
-	public void apply(RequestTemplate template) {
-		if (VersionContextHolder.getVersion() == null) {
-			log.error("TTL 中的 VERSION为空，feign拦截器 >> 增强失败");
-			return;
-		}
-		template.header(MateConstant.VERSION, VersionContextHolder.getVersion());
-	}
+    @Override
+    public void apply(RequestTemplate template) {
+        if (VersionContextHolder.getVersion() == null) {
+            log.error("TTL 中的 VERSION为空，feign拦截器 >> 增强失败");
+            return;
+        }
+        template.header(MateConstant.VERSION, VersionContextHolder.getVersion());
+    }
 }

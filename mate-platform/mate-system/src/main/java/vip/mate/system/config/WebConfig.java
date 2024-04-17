@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 基于token快速获取用户登录信息
+ *
  * @author pangu
  * @link https://blog.csdn.net/lizc_lizc/article/details/99171901
  */

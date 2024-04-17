@@ -21,84 +21,84 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SysMenuVO implements INode {
 
-	private static final long serialVersionUID = -8036122418979736148L;
+    private static final long serialVersionUID = -8036122418979736148L;
 
-	/**
-	 * 菜单ID
-	 */
-	@JsonSerialize(using = ToStringSerializer.class)
-	@Schema(description = "主键")
-	private Long id;
+    /**
+     * 菜单ID
+     */
+    @JsonSerialize(using = ToStringSerializer.class)
+    @Schema(description = "主键")
+    private Long id;
 
-	/**
-	 * 菜单标题
-	 */
-	private String name;
+    /**
+     * 菜单标题
+     */
+    private String name;
 
-	/**
-	 * 菜单权限
-	 */
-	private String permission;
+    /**
+     * 菜单权限
+     */
+    private String permission;
 
-	/**
-	 * 路径
-	 */
-	private String path;
+    /**
+     * 路径
+     */
+    private String path;
 
-	/**
-	 * 父菜单ID
-	 */
-	private Long parentId;
+    /**
+     * 父菜单ID
+     */
+    private Long parentId;
 
-	/**
-	 * 菜单图标
-	 */
-	private String icon;
+    /**
+     * 菜单图标
+     */
+    private String icon;
 
-	/**
-	 * 菜单类型
-	 */
-	private String type;
+    /**
+     * 菜单类型
+     */
+    private String type;
 
-	/**
-	 * 排序值
-	 */
-	private Integer sort;
+    /**
+     * 排序值
+     */
+    private Integer sort;
 
-	private MenuMeta meta;
+    private MenuMeta meta;
 
-	private String component;
+    private String component;
 
-	private String hidden;
+    private String hidden;
 
-	private String redirect;
+    private String redirect;
 
-	private Boolean alwaysShow;
+    private Boolean alwaysShow;
 
-	private Boolean target;
+    private Boolean target;
 
-	private String typeName;
+    private String typeName;
 
-	private LocalDateTime createTime;
+    private LocalDateTime createTime;
 
-	/**
-	 * 子孙节点
-	 */
-	@JsonInclude(JsonInclude.Include.NON_EMPTY)
-	private List<INode> children;
+    /**
+     * 子孙节点
+     */
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<INode> children;
 
-	/**
-	 * 是否有子孙节点
-	 */
-	@JsonInclude(JsonInclude.Include.NON_EMPTY)
-	private Boolean hasChildren;
+    /**
+     * 是否有子孙节点
+     */
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Boolean hasChildren;
 
-	@Override
-	public List<INode> getChildren() {
-		if (this.children == null) {
-			this.children = new ArrayList<>();
-		}
-		return this.children;
-	}
+    @Override
+    public List<INode> getChildren() {
+        if (this.children == null) {
+            this.children = new ArrayList<>();
+        }
+        return this.children;
+    }
 
 }

@@ -24,9 +24,9 @@ import vip.mate.core.mybatis.injector.MateSqlMethod;
  * @author L.cm
  */
 public class InsertIgnoreBatch extends AbstractInsertBatch {
-	private static final String SQL_METHOD = "insertIgnoreBatch";
+    private static final String SQL_METHOD = "insertIgnoreBatch";
 
-	public InsertIgnoreBatch() {
-		super(MateSqlMethod.INSERT_IGNORE_ONE.getSql(), SQL_METHOD);
-	}
+    public InsertIgnoreBatch() {
+        super(MateSqlMethod.INSERT_IGNORE_ONE.getSql(), SQL_METHOD);
+    }
 }

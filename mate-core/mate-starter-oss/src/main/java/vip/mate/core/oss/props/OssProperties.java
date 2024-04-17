@@ -22,17 +22,18 @@ import java.io.Serializable;
 
 /**
  * AWS配置信息
+ *
  * @author lengleng
  * @author 858695266
  * <p>
- *     oss: enable: true
- *     endpoint: http://127.0.0.1:9000 #
- *     pathStyleAccess 采用nginx反向代理或者AWS S3 配置成true，支持第三方云存储配置成false
- *     pathStyleAccess: false
- *     access-key: mate
- *     secret-key: mate
- *     bucket-name: mate
- *     region: custom-domain: oss.mate.vip
+ * oss: enable: true
+ * endpoint: http://127.0.0.1:9000 #
+ * pathStyleAccess 采用nginx反向代理或者AWS S3 配置成true，支持第三方云存储配置成false
+ * pathStyleAccess: false
+ * access-key: mate
+ * secret-key: mate
+ * bucket-name: mate
+ * region: custom-domain: oss.mate.vip
  * </p>
  */
 @Data

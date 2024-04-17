@@ -1,7 +1,7 @@
 package vip.mate.system.mapper;
 
-import vip.mate.system.entity.SysDepart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import vip.mate.system.entity.SysDepart;
 import vip.mate.system.vo.SysDepartVO;
 
 import java.util.List;

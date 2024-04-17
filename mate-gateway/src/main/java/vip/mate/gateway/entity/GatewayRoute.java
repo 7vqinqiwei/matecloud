@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 public class GatewayRoute {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	List<RouteDefinition> routes;
+    List<RouteDefinition> routes;
 }

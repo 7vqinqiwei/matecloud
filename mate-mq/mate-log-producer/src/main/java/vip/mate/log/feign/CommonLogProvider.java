@@ -24,16 +24,16 @@ import vip.mate.core.log.feign.ICommonLogProvider;
 @Tag(name = "调用消息生产者")
 public class CommonLogProvider implements ICommonLogProvider {
 
-	private final StreamBridge streamBridge;
+    private final StreamBridge streamBridge;
 
-	@Override
-	@PostMapping("/provider/common-log/send")
-	@Operation(summary = "发送普通消息", description = "发送普通消息")
-	public Result<?> sendCommonLog(@RequestBody CommonLog commonLog) {
-		boolean flag = streamBridge.send(LogConstant.LOG_OUTPUT, commonLog);
-		if (flag) {
-			return Result.success("操作成功");
-		}
-		return Result.fail("操作失败");
-	}
+    @Override
+    @PostMapping("/provider/common-log/send")
+    @Operation(summary = "发送普通消息", description = "发送普通消息")
+    public Result<?> sendCommonLog(@RequestBody CommonLog commonLog) {
+        boolean flag = streamBridge.send(LogConstant.LOG_OUTPUT, commonLog);
+        if (flag) {
+            return Result.success("操作成功");
+        }
+        return Result.fail("操作失败");
+    }
 }

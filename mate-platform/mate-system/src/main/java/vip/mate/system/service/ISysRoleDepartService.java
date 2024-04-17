@@ -16,10 +16,10 @@
  */
 package vip.mate.system.service;
 
-import vip.mate.system.entity.SysRoleDepart;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.service.IService;
 import vip.mate.core.database.entity.Search;
+import vip.mate.system.entity.SysRoleDepart;
 
 /**
  * <p>
@@ -31,11 +31,12 @@ import vip.mate.core.database.entity.Search;
  */
 public interface ISysRoleDepartService extends IService<SysRoleDepart> {
 
-	/**
+    /**
      * 分页业务方法
-     * @param search　搜索参数
+     *
+     * @param search 　搜索参数
      * @return IPage
      */
-	IPage<SysRoleDepart> listPage(Search search);
+    IPage<SysRoleDepart> listPage(Search search);
 
 }

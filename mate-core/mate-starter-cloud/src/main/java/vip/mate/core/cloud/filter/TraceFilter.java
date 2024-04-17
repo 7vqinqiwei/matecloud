@@ -16,6 +16,7 @@ import java.io.IOException;
 
 /**
  * 日志链路追踪过滤器
+ *
  * @author pangu
  * @date 2020-9-8
  */
@@ -33,7 +34,7 @@ public class TraceFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        try{
+        try {
             String traceId = TraceUtil.getTraceId(request);
             TraceUtil.mdcTraceId(traceId);
             filterChain.doFilter(request, response);

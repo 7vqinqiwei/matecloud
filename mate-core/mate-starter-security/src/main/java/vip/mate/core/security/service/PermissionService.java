@@ -20,18 +20,18 @@ import java.util.Collection;
 @Service(value = "mt")
 public class PermissionService {
 
-	public boolean hasPerm(String... permissions) {
-		if (ArrayUtils.isEmpty(permissions)) {
-			return false;
-		}
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null) {
-			return false;
-		}
-		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-		return authorities.stream()
-				.map(GrantedAuthority::getAuthority)
-				.filter(StringUtils::hasText)
-				.anyMatch(x -> PatternMatchUtils.simpleMatch(permissions, x));
-	}
+    public boolean hasPerm(String... permissions) {
+        if (ArrayUtils.isEmpty(permissions)) {
+            return false;
+        }
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null) {
+            return false;
+        }
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        return authorities.stream()
+                .map(GrantedAuthority::getAuthority)
+                .filter(StringUtils::hasText)
+                .anyMatch(x -> PatternMatchUtils.simpleMatch(permissions, x));
+    }
 }

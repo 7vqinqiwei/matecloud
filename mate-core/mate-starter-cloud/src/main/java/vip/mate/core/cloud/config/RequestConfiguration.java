@@ -8,6 +8,7 @@ import vip.mate.core.cloud.props.MateRequestProperties;
 
 /**
  * 请求配置，包括tracId和其他网络请求
+ *
  * @author pangu
  */
 @AutoConfiguration

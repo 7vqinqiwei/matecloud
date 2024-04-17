@@ -47,7 +47,7 @@ import javax.validation.Valid;
 @RestController
 @AllArgsConstructor
 @RequestMapping("$!{businessName}")
-@Tag(name  = "$!{functionName}", tags = "$!{functionName}接口")
+@Tag(name = "$!{functionName}", tags = "$!{functionName}接口")
 public class ${ClassName}Controller extends BaseController {
 
     private final I$!{BusinessName}Service $!{businessName}Service;
@@ -63,14 +63,14 @@ public class ${ClassName}Controller extends BaseController {
     @GetMapping("/page")
     @Operation(summary = "$!{functionName}列表")
     @Parameters({
-        @Parameter(name = "current", required = true,  description = "当前页", in = ParameterIn.DEFAULT),
-        @Parameter(name = "size", required = true,  description = "每页显示数据", in = ParameterIn.DEFAULT),
-        @Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-        @Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-        @Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "current", required = true, description = "当前页", in = ParameterIn.DEFAULT),
+            @Parameter(name = "size", required = true, description = "每页显示数据", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
     })
     public Result<?> page(Search search) {
-		return Result.data($!{businessName}Service.listPage(search));
+        return Result.data($!{businessName}Service.listPage(search));
     }
 
     /**
@@ -84,41 +84,41 @@ public class ${ClassName}Controller extends BaseController {
     @GetMapping("/get")
     @Operation(summary = "$!{functionName}信息")
     @Parameters({
-            @Parameter(name = "id", required = true,  description = "ID", in = ParameterIn.DEFAULT),
+            @Parameter(name = "id", required = true, description = "ID", in = ParameterIn.DEFAULT),
     })
     public Result<?> get(@RequestParam String id) {
-		return Result.data($!{businessName}Service.getById(id));
-	}
+        return Result.data($!{businessName}Service.getById(id));
+    }
 
     /**
-    * $!{functionName}设置
-    *
-    * @param $!{table.entityPath} $!{entity} 对象
-    * @return Result
-    */
+     * $!{functionName}设置
+     *
+     * @param $!{table.entityPath} $!{entity} 对象
+     * @return Result
+     */
     @PreAuth
     @Log(value = "$!{functionName}设置")
     @PostMapping("/set")
-    @Operation(summary = "$!{functionName}设置"")
-    public Result<?> set(@Valid @RequestBody $!{BusinessName} $!{businessName}) {
-		return Result.condition($!{businessName}Service.saveOrUpdate($!{businessName}));
-	}
+    @Operation(summary = "$!{functionName}设置" ")
+            public Result<?>set(@Valid@RequestBody $!{BusinessName} $!{businessName}) {
+            return Result.condition($!{businessName}Service.saveOrUpdate($!{businessName}));
+            }
 
-    /**
-    * $!{functionName}删除
-    *
-    * @param ids id字符串，根据,号分隔
-    * @return Result
-    */
-    @PreAuth
-    @Log(value = "$!{functionName}删除")
-    @PostMapping("/del")
-    @Operation(summary = "$!{functionName}删除")
-    @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
-    })
-    public Result<?> del(@RequestParam String ids) {
-		return Result.condition($!{businessName}Service.removeByIds(CollectionUtil.stringToCollection(ids)));
-	}
-}
+            /**
+             * $!{functionName}删除
+             *
+             * @param ids id字符串，根据,号分隔
+             * @return Result
+            */
+            @PreAuth
+            @Log(value = "$!{functionName}删除")
+            @PostMapping("/del")
+            @Operation(summary = "$!{functionName}删除")
+            @Parameters({
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+})
+public Result<?> del(@RequestParam String ids){
+        return Result.condition($!{businessName}Service.removeByIds(CollectionUtil.stringToCollection(ids)));
+        }
+        }
 

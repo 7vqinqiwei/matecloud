@@ -20,24 +20,24 @@ import java.util.List;
 @AllArgsConstructor
 public class WebConfiguration implements WebMvcConfigurer {
 
-	private final RedisService redisService;
+    private final RedisService redisService;
 
-	/**
-	 * Token参数解析
-	 *
-	 * @param argumentResolvers 解析类
-	 */
-	@Override
-	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-		//注入用户信息
-		argumentResolvers.add(new LoginUserArgumentResolver());
-	}
+    /**
+     * Token参数解析
+     *
+     * @param argumentResolvers 解析类
+     */
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        //注入用户信息
+        argumentResolvers.add(new LoginUserArgumentResolver());
+    }
 
-	/**
-	 * 资源扫描监听器类
-	 *
-	 * @return RequestMappingScanListener
-	 */
+    /**
+     * 资源扫描监听器类
+     *
+     * @return RequestMappingScanListener
+     */
 //	@Bean
 //	@ConditionalOnMissingBean(RequestMappingScanListener.class)
 //	public RequestMappingScanListener resourceAnnotationScan() {

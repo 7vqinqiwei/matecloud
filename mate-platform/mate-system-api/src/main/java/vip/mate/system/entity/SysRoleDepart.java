@@ -34,18 +34,18 @@ import vip.mate.core.database.entity.BaseEntity;
 @Schema(name = "SysRoleDepart对象", description = "角色和部门关联表")
 public class SysRoleDepart extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	* 角色ID
-	*/
-	@Schema(description = "角色ID")
-	private Long roleId;
-	/**
-	* 部门ID
-	*/
-	@Schema(description = "部门ID")
-	private Long departId;
+    /**
+     * 角色ID
+     */
+    @Schema(description = "角色ID")
+    private Long roleId;
+    /**
+     * 部门ID
+     */
+    @Schema(description = "部门ID")
+    private Long departId;
 
 
 }

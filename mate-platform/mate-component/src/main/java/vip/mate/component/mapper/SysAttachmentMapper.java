@@ -1,7 +1,7 @@
 package vip.mate.component.mapper;
 
-import vip.mate.component.entity.SysAttachment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import vip.mate.component.entity.SysAttachment;
 
 /**
  * <p>

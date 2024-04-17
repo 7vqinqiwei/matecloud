@@ -18,8 +18,8 @@ import vip.mate.core.sms.props.SmsProperties;
 @ConditionalOnProperty(prefix = SmsProperties.PREFIX, name = "enable", havingValue = "true")
 public class AliSmsConfiguration {
 
-	@Bean
-	public SmsTemplate aliSmsTemplate(SmsProperties smsProperties) {
-		return new AliSmsTemplate(smsProperties);
-	}
+    @Bean
+    public SmsTemplate aliSmsTemplate(SmsProperties smsProperties) {
+        return new AliSmsTemplate(smsProperties);
+    }
 }

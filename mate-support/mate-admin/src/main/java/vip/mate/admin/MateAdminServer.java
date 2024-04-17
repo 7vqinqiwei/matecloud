@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableAdminServer
 @SpringBootApplication
 public class MateAdminServer {
-	public static void main(String[] args) {
-		SpringApplication.run(MateAdminServer.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MateAdminServer.class, args);
+    }
 }

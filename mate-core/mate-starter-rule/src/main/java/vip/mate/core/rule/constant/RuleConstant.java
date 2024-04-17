@@ -2,6 +2,7 @@ package vip.mate.core.rule.constant;
 
 /**
  * 规则常量
+ *
  * @author pangu
  */
 public class RuleConstant {

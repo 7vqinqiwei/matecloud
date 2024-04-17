@@ -29,50 +29,50 @@ import java.util.Map;
 @Slf4j
 public class GrayRoundRobinLoadBalancer extends RoundRobinLoadBalancer {
 
-	private ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider;
+    private ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider;
 
-	private String serviceId;
+    private String serviceId;
 
-	public GrayRoundRobinLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider, String serviceId) {
-		super(serviceInstanceListSupplierProvider, serviceId);
-		this.serviceId = serviceId;
-		this.serviceInstanceListSupplierProvider = serviceInstanceListSupplierProvider;
-	}
+    public GrayRoundRobinLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider, String serviceId) {
+        super(serviceInstanceListSupplierProvider, serviceId);
+        this.serviceId = serviceId;
+        this.serviceInstanceListSupplierProvider = serviceInstanceListSupplierProvider;
+    }
 
-	public GrayRoundRobinLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider, String serviceId, int seedPosition) {
-		super(serviceInstanceListSupplierProvider, serviceId, seedPosition);
-	}
+    public GrayRoundRobinLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider, String serviceId, int seedPosition) {
+        super(serviceInstanceListSupplierProvider, serviceId, seedPosition);
+    }
 
-	@Override
-	public Mono<Response<ServiceInstance>> choose(Request request) {
-		ServiceInstanceListSupplier supplier = serviceInstanceListSupplierProvider
-				.getIfAvailable(NoopServiceInstanceListSupplier::new);
-		return supplier.get(request).next().map(serviceInstances -> getInstanceResponse(serviceInstances, request));
-	}
+    @Override
+    public Mono<Response<ServiceInstance>> choose(Request request) {
+        ServiceInstanceListSupplier supplier = serviceInstanceListSupplierProvider
+                .getIfAvailable(NoopServiceInstanceListSupplier::new);
+        return supplier.get(request).next().map(serviceInstances -> getInstanceResponse(serviceInstances, request));
+    }
 
-	Response<ServiceInstance> getInstanceResponse(List<ServiceInstance> instances, Request request) {
+    Response<ServiceInstance> getInstanceResponse(List<ServiceInstance> instances, Request request) {
 
-		// 注册中心无可用实例 抛出异常
-		if (CollUtil.isEmpty(instances)) {
-			log.warn("No instance available {}", serviceId);
-			return new EmptyResponse();
-		}
-		String reqVersion = VersionContextHolder.getVersion();
+        // 注册中心无可用实例 抛出异常
+        if (CollUtil.isEmpty(instances)) {
+            log.warn("No instance available {}", serviceId);
+            return new EmptyResponse();
+        }
+        String reqVersion = VersionContextHolder.getVersion();
 
-		if (StrUtil.isBlank(reqVersion)) {
-			return super.choose(request).block();
-		}
+        if (StrUtil.isBlank(reqVersion)) {
+            return super.choose(request).block();
+        }
 
-		// 遍历可以实例元数据，若匹配则返回此实例
-		for (ServiceInstance instance : instances) {
-			NacosServiceInstance nacosInstance = (NacosServiceInstance) instance;
-			Map<String, String> metadata = nacosInstance.getMetadata();
-			String targetVersion = MapUtil.getStr(metadata, MateConstant.VERSION);
-			if (reqVersion.equalsIgnoreCase(targetVersion)) {
-				log.debug("gray requst match success :{} {}", reqVersion, nacosInstance);
-				return new DefaultResponse(nacosInstance);
-			}
-		}
-		return super.choose(request).block();
-	}
+        // 遍历可以实例元数据，若匹配则返回此实例
+        for (ServiceInstance instance : instances) {
+            NacosServiceInstance nacosInstance = (NacosServiceInstance) instance;
+            Map<String, String> metadata = nacosInstance.getMetadata();
+            String targetVersion = MapUtil.getStr(metadata, MateConstant.VERSION);
+            if (reqVersion.equalsIgnoreCase(targetVersion)) {
+                log.debug("gray requst match success :{} {}", reqVersion, nacosInstance);
+                return new DefaultResponse(nacosInstance);
+            }
+        }
+        return super.choose(request).block();
+    }
 }

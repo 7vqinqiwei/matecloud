@@ -25,7 +25,7 @@ import java.io.Serializable;
 @Schema(name = "SysRolePermission对象", description = "角色权限表")
 public class SysRolePermission implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键id

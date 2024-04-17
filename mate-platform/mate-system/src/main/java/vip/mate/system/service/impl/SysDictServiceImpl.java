@@ -8,7 +8,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.database.entity.Search;
-import vip.mate.system.entity.SysBlacklist;
 import vip.mate.system.entity.SysDict;
 import vip.mate.system.mapper.SysDictMapper;
 import vip.mate.system.service.ISysDictService;

@@ -31,47 +31,53 @@ import java.util.concurrent.Executor;
 @RequiredArgsConstructor
 public class DynamicRouteInit {
 
-	private final RouteDefinitionWriter routeDefinitionWriter;
-	private final NacosConfigProperties nacosProperties;
+    private final RouteDefinitionWriter routeDefinitionWriter;
+    private final NacosConfigProperties nacosProperties;
 
-	@PostConstruct
-	public void initRoute() {
-		try {
-			Properties properties = new Properties();
-			properties.put(PropertyKeyConst.SERVER_ADDR, nacosProperties.getServerAddr());
-			properties.put(PropertyKeyConst.USERNAME, nacosProperties.getUsername());
-			properties.put(PropertyKeyConst.PASSWORD, nacosProperties.getPassword());
-			properties.put(PropertyKeyConst.NAMESPACE, nacosProperties.getNamespace());
-			ConfigService configService = NacosFactory.createConfigService(properties);
+    @PostConstruct
+    public void initRoute() {
+        try {
+            Properties properties = new Properties();
+            properties.put(PropertyKeyConst.SERVER_ADDR, nacosProperties.getServerAddr());
+            properties.put(PropertyKeyConst.USERNAME, nacosProperties.getUsername());
+            properties.put(PropertyKeyConst.PASSWORD, nacosProperties.getPassword());
+            properties.put(PropertyKeyConst.NAMESPACE, nacosProperties.getNamespace());
+            ConfigService configService = NacosFactory.createConfigService(properties);
 
-			String content = configService.getConfig(MateConstant.CONFIG_DATA_ID_DYNAMIC_ROUTES, nacosProperties.getGroup(), MateConstant.CONFIG_TIMEOUT_MS);
-			log.info("初始化网关路由开始");
-			updateRoute(content);
-			log.info("初始化网关路由完成");
-			//开户监听，实现动态
-			configService.addListener(MateConstant.CONFIG_DATA_ID_DYNAMIC_ROUTES, nacosProperties.getGroup(), new Listener() {
-				@Override
-				public void receiveConfigInfo(String configInfo) {
-					log.info("更新网关路由开始");
-					updateRoute(configInfo);
-					log.info("更新网关路由完成");
-				}
-				@Override
-				public Executor getExecutor() {
-					return null;
-				}
-			});
-		} catch (NacosException e) {
-			log.error("加载路由出错：{}", e.getErrMsg());
-		}
-	}
+            String content = configService.getConfig(MateConstant.CONFIG_DATA_ID_DYNAMIC_ROUTES, nacosProperties.getGroup(), MateConstant.CONFIG_TIMEOUT_MS);
+            if (null == content || "".equals(content.trim())) {
+                log.info("初始化网关路由为空,请关注配置是否正确!");
+            } else {
+                log.info("初始化网关路由开始");
+                updateRoute(content);
+                log.info("初始化网关路由完成");
+            }
 
-	public void updateRoute(String content) {
-		Yaml yaml = new Yaml();
-		GatewayRoute gatewayRoute = yaml.loadAs(content, GatewayRoute.class);
-		gatewayRoute.getRoutes().forEach(route -> {
-			log.info("加载路由：{},{}", route.getId(), route);
-			routeDefinitionWriter.save(Mono.just(route)).subscribe();
-		});
-	}
+            //开户监听，实现动态
+            configService.addListener(MateConstant.CONFIG_DATA_ID_DYNAMIC_ROUTES, nacosProperties.getGroup(), new Listener() {
+                @Override
+                public void receiveConfigInfo(String configInfo) {
+                    log.info("更新网关路由开始");
+                    updateRoute(configInfo);
+                    log.info("更新网关路由完成");
+                }
+
+                @Override
+                public Executor getExecutor() {
+                    return null;
+                }
+            });
+        } catch (NacosException e) {
+            log.error("加载路由出错：{}", e.getErrMsg());
+        }
+    }
+
+    public void updateRoute(String content) {
+        Yaml yaml = new Yaml();
+        GatewayRoute gatewayRoute = yaml.loadAs(content, GatewayRoute.class);
+        gatewayRoute.getRoutes().forEach(route -> {
+            log.info("加载路由：{},{}", route.getId(), route);
+            routeDefinitionWriter.save(Mono.just(route)).subscribe();
+        });
+    }
 }

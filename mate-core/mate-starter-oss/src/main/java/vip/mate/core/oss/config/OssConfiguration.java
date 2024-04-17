@@ -31,6 +31,7 @@ import vip.mate.core.oss.props.OssProperties;
 
 /**
  * AWS自动配置类
+ *
  * @author lengleng
  * @author 858695266
  * @link https://github.com/pig-mesh/oss-spring-boot-starter
@@ -63,7 +64,7 @@ public class OssConfiguration {
 
     @Bean
     @RefreshScope
-    public OssProperties ossProperties(){
+    public OssProperties ossProperties() {
         return (OssProperties) redisTemplate.opsForValue().get(ComponentConstant.OSS_DEFAULT);
     }
 }

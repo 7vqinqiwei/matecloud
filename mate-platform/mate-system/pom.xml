@@ -25,10 +25,10 @@
             <artifactId>mate-starter-web</artifactId>
         </dependency>
         <!-- 此依赖加上后使用dubbo,注释后使用Feign -->
-<!--        <dependency>-->
-<!--            <groupId>vip.mate</groupId>-->
-<!--            <artifactId>mate-starter-dubbo</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>vip.mate</groupId>-->
+        <!--            <artifactId>mate-starter-dubbo</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>vip.mate</groupId>
             <artifactId>mate-starter-jetcache</artifactId>
@@ -95,7 +95,9 @@
                     <env>
                         <JAVA_OPTS>${docker.java.opts}</JAVA_OPTS>
                     </env>
-                    <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar /${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["sh","-c","java $JAVA_OPTS ${docker.java.security.egd} -jar
+                        /${project.build.finalName}.jar"]
+                    </entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>

@@ -8,7 +8,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
 import vip.mate.core.common.api.Result;
 import vip.mate.core.database.entity.Search;
@@ -43,7 +48,8 @@ public class SysBlacklistController extends BaseController {
 
     /**
      * 黑名单分页
-     * @param search　关键词
+     *
+     * @param search 　关键词
      * @return Result
      */
     @PreAuth
@@ -51,11 +57,11 @@ public class SysBlacklistController extends BaseController {
     @GetMapping("/page")
     @Operation(summary = "黑名单分页", description = "黑名单分页")
     @Parameters({
-            @Parameter(name = "current", required = true,  description = "当前页", in = ParameterIn.DEFAULT),
-            @Parameter(name = "size", required = true,  description = "每页显示数据", in = ParameterIn.DEFAULT),
-            @Parameter(name = "keyword", required = true,  description = "模糊查询关键词", in = ParameterIn.DEFAULT),
-            @Parameter(name = "startDate", required = true,  description = "创建开始日期", in = ParameterIn.DEFAULT),
-            @Parameter(name = "endDate", required = true,  description = "创建结束日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "current", required = true, description = "当前页", in = ParameterIn.DEFAULT),
+            @Parameter(name = "size", required = true, description = "每页显示数据", in = ParameterIn.DEFAULT),
+            @Parameter(name = "keyword", required = true, description = "模糊查询关键词", in = ParameterIn.DEFAULT),
+            @Parameter(name = "startDate", required = true, description = "创建开始日期", in = ParameterIn.DEFAULT),
+            @Parameter(name = "endDate", required = true, description = "创建结束日期", in = ParameterIn.DEFAULT),
     })
     public Result<?> page(Search search) {
         return Result.data(sysBlacklistService.listPage(search));
@@ -63,6 +69,7 @@ public class SysBlacklistController extends BaseController {
 
     /**
      * 黑名单设置
+     *
      * @param sysBlacklist SysBlacklist对象
      * @return Result
      */
@@ -92,7 +99,8 @@ public class SysBlacklistController extends BaseController {
 
     /**
      * 黑名单信息
-     * @param id　id
+     *
+     * @param id 　id
      * @return Result
      */
     @PreAuth
@@ -100,7 +108,7 @@ public class SysBlacklistController extends BaseController {
     @GetMapping("/get")
     @Operation(summary = "黑名单信息", description = "黑名单信息,根据ID查询")
     @Parameters({
-            @Parameter(name = "id", required = true,  description = "主键ID", in = ParameterIn.DEFAULT),
+            @Parameter(name = "id", required = true, description = "主键ID", in = ParameterIn.DEFAULT),
     })
     public Result<?> info(@RequestParam String id) {
         return Result.data(sysBlacklistService.getById(id));
@@ -108,7 +116,8 @@ public class SysBlacklistController extends BaseController {
 
     /**
      * 黑名单删除
-     * @param ids　多个id采用逗号分隔
+     *
+     * @param ids 　多个id采用逗号分隔
      * @return Result
      */
     @PreAuth
@@ -116,7 +125,7 @@ public class SysBlacklistController extends BaseController {
     @PostMapping("/del")
     @Operation(summary = "黑名单删除", description = "黑名单删除")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT)
     })
     @Transactional(rollbackFor = Exception.class)
     public Result<?> del(@RequestParam String ids) {
@@ -137,8 +146,9 @@ public class SysBlacklistController extends BaseController {
 
     /**
      * 黑名单状态
-     * @param ids　多个id采用逗号分隔
-     * @param status　状态：启用、禁用
+     *
+     * @param ids    　多个id采用逗号分隔
+     * @param status 　状态：启用、禁用
      * @return Result
      */
     @PreAuth
@@ -146,8 +156,8 @@ public class SysBlacklistController extends BaseController {
     @PostMapping("/set-status")
     @Operation(summary = "黑名单状态", description = "黑名单状态,状态包括：启用、禁用")
     @Parameters({
-            @Parameter(name = "ids", required = true,  description = "多个用,号隔开", in = ParameterIn.DEFAULT),
-            @Parameter(name = "status", required = true,  description = "状态", in = ParameterIn.DEFAULT)
+            @Parameter(name = "ids", required = true, description = "多个用,号隔开", in = ParameterIn.DEFAULT),
+            @Parameter(name = "status", required = true, description = "状态", in = ParameterIn.DEFAULT)
     })
     public Result<?> setStatus(@RequestParam String ids, @RequestParam String status) {
         if (sysBlacklistService.status(ids, status)) {

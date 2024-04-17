@@ -2,7 +2,11 @@ package vip.mate.core.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
@@ -17,23 +21,23 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StatusValue {
 
-	String message() default "不正确的状态标识";
+    String message() default "不正确的状态标识";
 
-	Class[] groups() default {};
+    Class[] groups() default {};
 
-	Class<? extends Payload>[] payload() default {};
+    Class<? extends Payload>[] payload() default {};
 
-	/**
-	 * 是否必填
-	 * <p>
-	 * 如果必填，在校验的时候本字段没值就会报错
-	 */
-	boolean required() default true;
+    /**
+     * 是否必填
+     * <p>
+     * 如果必填，在校验的时候本字段没值就会报错
+     */
+    boolean required() default true;
 
-	@Target({ElementType.FIELD, ElementType.PARAMETER})
-	@Retention(RUNTIME)
-	@Documented
-	@interface List {
-		StatusValue[] value();
-	}
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+        StatusValue[] value();
+    }
 }

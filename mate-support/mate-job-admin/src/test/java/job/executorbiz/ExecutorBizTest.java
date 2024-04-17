@@ -2,7 +2,12 @@ package job.executorbiz;
 
 import com.xxl.job.core.biz.ExecutorBiz;
 import com.xxl.job.core.biz.client.ExecutorBizClient;
-import com.xxl.job.core.biz.model.*;
+import com.xxl.job.core.biz.model.IdleBeatParam;
+import com.xxl.job.core.biz.model.KillParam;
+import com.xxl.job.core.biz.model.LogParam;
+import com.xxl.job.core.biz.model.LogResult;
+import com.xxl.job.core.biz.model.ReturnT;
+import com.xxl.job.core.biz.model.TriggerParam;
 import com.xxl.job.core.enums.ExecutorBlockStrategyEnum;
 import com.xxl.job.core.glue.GlueTypeEnum;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * executor api test
- *
+ * <p>
  * Created by xuxueli on 17/5/12.
  */
 public class ExecutorBizTest {
@@ -33,7 +38,7 @@ public class ExecutorBizTest {
     }
 
     @Test
-    public void idleBeat(){
+    public void idleBeat() {
         ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         final int jobId = 0;
@@ -49,7 +54,7 @@ public class ExecutorBizTest {
     }
 
     @Test
-    public void run(){
+    public void run() {
         ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         // trigger data
@@ -72,7 +77,7 @@ public class ExecutorBizTest {
     }
 
     @Test
-    public void kill(){
+    public void kill() {
         ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         final int jobId = 0;
@@ -88,7 +93,7 @@ public class ExecutorBizTest {
     }
 
     @Test
-    public void log(){
+    public void log() {
         ExecutorBiz executorBiz = new ExecutorBizClient(addressUrl, accessToken);
 
         final long logDateTim = 0L;

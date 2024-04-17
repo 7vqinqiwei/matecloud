@@ -1,6 +1,7 @@
 package vip.mate.system.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.cola.exception.BizException;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -10,7 +11,6 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import vip.mate.core.common.constant.SystemConstant;
-import vip.mate.core.common.exception.BaseException;
 import vip.mate.core.database.entity.Search;
 import vip.mate.core.database.enums.OrderTypeEnum;
 import vip.mate.core.database.util.PageUtil;
@@ -49,7 +49,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         Collection<? extends Serializable> collection = CollectionUtil.stringToCollection(ids);
 
         if (ObjectUtils.isEmpty(collection)) {
-            throw new BaseException("传入的ID值不能为空！");
+            throw new BizException("传入的ID值不能为空！");
         }
 
         collection.forEach(id -> {
