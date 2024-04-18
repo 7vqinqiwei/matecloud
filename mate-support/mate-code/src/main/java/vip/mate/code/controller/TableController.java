@@ -34,7 +34,7 @@ import vip.mate.code.entity.Table;
 import vip.mate.code.service.ITableService;
 import vip.mate.code.service.TableInfoService;
 import vip.mate.core.auth.annotation.PreAuth;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.database.entity.Search;
 import vip.mate.core.database.util.PageUtil;
 import vip.mate.core.log.annotation.Log;

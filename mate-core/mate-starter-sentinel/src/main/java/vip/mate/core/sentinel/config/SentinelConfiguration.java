@@ -16,7 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.sentinel.feign.MateFeignSentinel;
 
 import javax.servlet.http.HttpServletRequest;

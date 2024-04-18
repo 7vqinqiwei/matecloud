@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 import vip.mate.seata.user.entity.User;
 import vip.mate.seata.user.feign.OrderProvider;
 import vip.mate.seata.user.feign.PointProvider;

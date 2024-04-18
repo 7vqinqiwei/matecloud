@@ -3,7 +3,7 @@ package vip.mate.core.security.handle;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.util.ResponseUtil;
 
 import javax.servlet.ServletException;

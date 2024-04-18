@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import reactor.core.publisher.Mono;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

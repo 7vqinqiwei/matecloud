@@ -4,7 +4,7 @@ import com.alicp.jetcache.anno.Cached;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 import vip.mate.core.common.constant.SystemConstant;
 import vip.mate.core.database.entity.Search;
 import vip.mate.system.entity.SysDict;

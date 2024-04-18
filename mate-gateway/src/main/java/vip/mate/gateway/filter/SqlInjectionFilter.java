@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.util.SqlInjectionUtil;
 import vip.mate.gateway.util.WebFluxUtil;
 

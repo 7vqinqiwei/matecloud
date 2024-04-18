@@ -1,7 +1,7 @@
 package vip.mate.uaa.service;
 
 import com.alibaba.cola.biz.exception.CaptchaException;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 
 /**
  * 验证码业务类

@@ -6,7 +6,7 @@ import com.wf.captcha.ArithmeticCaptcha;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 import vip.mate.core.common.constant.Oauth2Constant;
 import vip.mate.core.redis.core.RedisService;
 import vip.mate.uaa.service.ValidateService;

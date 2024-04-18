@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import vip.mate.core.auth.annotation.PreAuth;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 import vip.mate.core.common.entity.LoginUser;
 import vip.mate.core.database.entity.Search;
 import vip.mate.core.file.util.ExcelUtil;

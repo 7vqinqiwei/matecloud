@@ -8,7 +8,7 @@ import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.dto.CommonLog;
 import vip.mate.core.kafka.constant.LogConstant;
 import vip.mate.core.log.feign.ICommonLogProvider;

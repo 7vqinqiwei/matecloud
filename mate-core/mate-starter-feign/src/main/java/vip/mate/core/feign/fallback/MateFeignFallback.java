@@ -8,7 +8,7 @@ import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 
 import java.lang.reflect.Method;
 import java.util.Objects;

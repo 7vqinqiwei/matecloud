@@ -121,7 +121,7 @@ matecloud -- 父项目,各模块分离，方便集成和微服务
 │  │  ├─mate-starter-dependencies -- 封装所有依赖模块，可作为父项目独立引用  \\ √
 │  │  ├─mate-starter-dubbo -- 封装dubbo基础模块
 │  │  ├─mate-starter-feign -- 封装feign基础模块
-│  │  ├─mate-starter-jetcache -- 封装JetCache阿里缓存基础模块   \\ √
+│  │  ├─mate-starter-jetcache -- 封装JetCache阿里缓存基础模块   \\ √ 与spring-cache接近
 │  │  ├─mate-starter-rocketmq -- 封装RocketMQ基础模块
 │  │  ├─mate-starter-gray -- 封装灰度发布基础模块
 │  │  ├─mate-starter-elasticsearch -- 封装ElasticSearch模块
@@ -137,7 +137,7 @@ matecloud -- 父项目,各模块分离，方便集成和微服务
 │  │  ├─mate-starter-encrypt -- 封装报文加密模块，支持AES和RSA  \\ √
 │  │  ├─mate-starter-mongodb -- 封装mongodb数据库模块
 │  │  ├─mate-starter-strategy -- 封装策略模块  \\ √
-│  │  ├─mate-starter-job -- 封装定时任务基础模块
+│  │  ├─mate-starter-job -- 封装定时任务基础模块   \\ √  已经含有封装的内容，不知道是否有差异
 │  │  ├─mate-starter-validator -- 封装统一检验基础模块
 │  │─mate-gateway -- 统一网关模块 [10001]
 │  │─mate-uaa -- 统一认证中心模块 [20001]

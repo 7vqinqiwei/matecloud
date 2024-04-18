@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import vip.mate.code.entity.SysDataSource;
 import vip.mate.code.service.ISysDataSourceService;
 import vip.mate.core.auth.annotation.PreAuth;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.log.annotation.Log;
 import vip.mate.core.web.controller.BaseController;
 import vip.mate.core.web.util.CollectionUtil;

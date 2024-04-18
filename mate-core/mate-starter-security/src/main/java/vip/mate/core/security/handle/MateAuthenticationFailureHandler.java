@@ -11,7 +11,7 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.util.ResponseUtil;
 
 import javax.servlet.ServletException;

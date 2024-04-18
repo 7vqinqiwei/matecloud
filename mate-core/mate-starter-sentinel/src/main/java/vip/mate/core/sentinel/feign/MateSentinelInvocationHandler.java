@@ -14,7 +14,7 @@ import feign.MethodMetadata;
 import feign.Target;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;

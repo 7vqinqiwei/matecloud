@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.util.DateUtil;
 import vip.mate.core.common.util.RequestHolder;
 import vip.mate.core.common.util.ResponseUtil;

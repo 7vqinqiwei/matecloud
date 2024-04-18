@@ -3,7 +3,7 @@ package vip.mate.system.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 import vip.mate.core.ide.annotation.Ide;
 import vip.mate.core.ide.enums.IdeTypeEnum;
 

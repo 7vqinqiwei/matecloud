@@ -38,7 +38,7 @@ import vip.mate.code.service.ISysDataSourceService;
 import vip.mate.code.util.GeneratorUtil;
 import vip.mate.code.util.ZipUtil;
 import vip.mate.core.auth.annotation.PreAuth;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.log.annotation.Log;
 import vip.mate.core.web.util.FileUtil;
 

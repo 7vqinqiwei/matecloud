@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 import vip.mate.core.common.constant.ProviderConstant;
 import vip.mate.core.log.annotation.Log;
 import vip.mate.core.log.util.TrackUtil;

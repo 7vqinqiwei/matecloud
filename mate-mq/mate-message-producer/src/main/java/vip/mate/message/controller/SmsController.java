@@ -3,7 +3,7 @@ package vip.mate.message.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.message.service.ISmsService;
 import vip.mate.message.service.ITransactionOrderService;
 

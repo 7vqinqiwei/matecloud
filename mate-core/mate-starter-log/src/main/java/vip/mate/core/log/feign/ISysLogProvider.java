@@ -3,7 +3,7 @@ package vip.mate.core.log.feign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.constant.ProviderConstant;
 import vip.mate.core.common.dto.CommonLog;
 import vip.mate.core.feign.constant.FeignConstant;

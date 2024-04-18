@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.common.exceptions.InvalidTokenExcepti
 import org.springframework.security.oauth2.common.exceptions.UnsupportedGrantTypeException;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.stereotype.Component;
-import vip.mate.core.common.api.Result;
+import com.alibaba.cola.biz.Result;;
 
 /**
  * WEB响应异常处理类

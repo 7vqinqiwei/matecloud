@@ -31,7 +31,7 @@ public class PreviewAspect {
     private final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     @Around(
-            "execution(static vip.mate.core.common.api.Result *(..)) || " +
+            "execution(static com.alibaba.cola.biz.Result *(..)) || " +
                     "(@within(org.springframework.stereotype.Controller) || " +
                     "@within(org.springframework.web.bind.annotation.RestController))"
     )
