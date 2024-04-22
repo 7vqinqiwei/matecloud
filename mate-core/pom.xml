@@ -57,7 +57,6 @@
         <module>mate-starter-prometheus</module>
         <module>mate-starter-job</module>
         <module>mate-starter-mail</module>
-        <module>mate-starter-strategy</module>
         <module>mate-starter-mongodb</module>
         <module>mate-starter-lock</module>
         <module>mate-starter-rabbit</module>
