@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  vip.mate.core.lock.config.RedissonConfiguration,\
-  vip.mate.core.lock.aspect.DistributedLockHandler
-
-
