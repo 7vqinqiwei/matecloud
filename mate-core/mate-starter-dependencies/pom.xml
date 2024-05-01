@@ -213,11 +213,6 @@
                 <artifactId>mate-starter-prometheus</artifactId>
                 <version>${matecloud.core.version}</version>
             </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>mate-starter-job</artifactId>
-                <version>${matecloud.core.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
