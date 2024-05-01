@@ -160,11 +160,6 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>mate-starter-jetcache</artifactId>
-                <version>${matecloud.core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
                 <artifactId>mate-starter-log</artifactId>
                 <version>${matecloud.core.version}</version>
             </dependency>

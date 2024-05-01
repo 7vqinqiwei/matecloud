@@ -29,9 +29,14 @@
         <!--            <groupId>vip.mate</groupId>-->
         <!--            <artifactId>mate-starter-dubbo</artifactId>-->
         <!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>vip.mate</groupId>-->
+<!--            <artifactId>mate-starter-jetcache</artifactId>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>vip.mate</groupId>
-            <artifactId>mate-starter-jetcache</artifactId>
+            <groupId>com.wayne.cache</groupId>
+            <artifactId>wayne-cache-jetcache-starter</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>vip.mate</groupId>

@@ -14,8 +14,6 @@
     <modules>
         <module>mate-code</module>
         <module>mate-admin</module>
-        <module>mate-job</module>
-        <module>mate-job-admin</module>
     </modules>
 
 </project>
