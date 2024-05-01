@@ -3,6 +3,7 @@ package vip.mate.core.web.handler;
 import com.alibaba.cola.biz.exception.SysLimitException;
 import com.alibaba.cola.biz.exception.TokenException;
 import com.alibaba.cola.exception.BizException;
+import com.alibaba.cola.exception.result.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,7 @@ public class BaseExceptionHandler {
     @ExceptionHandler(BizException.class)
     public Result<?> handleBaseException(BizException ex) {
         log.error("程序异常：" + ex.toString());
-        return Result.fail(WebConstant.Status.UNAUTHORIZED.getCode(), ex.getMessage());
+        return Result.fail(ErrorCode.UNAUTHORIZED.getCode(), ex.getMessage());
     }
 
     /**
@@ -46,7 +47,7 @@ public class BaseExceptionHandler {
     @ExceptionHandler(TokenException.class)
     public Result<?> handleTokenException(TokenException ex) {
         log.error("程序异常==>errorCode:{}, exception:{}", HttpStatus.UNAUTHORIZED.value(), ex.getMessage());
-        return Result.fail(WebConstant.Status.UNAUTHORIZED.getCode(), ex.getMessage());
+        return Result.fail(ErrorCode.UNAUTHORIZED.getCode(), ex.getMessage());
     }
 
     /**
@@ -58,7 +59,7 @@ public class BaseExceptionHandler {
     @ExceptionHandler({FileNotFoundException.class, NoHandlerFoundException.class})
     public Result<?> noFoundException(Exception exception) {
         log.error("程序异常==>errorCode:{}, exception:{}", HttpStatus.NOT_FOUND.value(), exception.getMessage());
-        return Result.fail(WebConstant.Status.NOT_FOUND.getCode(), exception.getMessage());
+        return Result.fail(ErrorCode.UNAUTHORIZED.getCode(), exception.getMessage());
     }
 
     /**
@@ -70,7 +71,7 @@ public class BaseExceptionHandler {
     @ExceptionHandler(SysLimitException.class)
     public Result<?> handlePreviewException(SysLimitException ex) {
         log.error("程序异常：" + ex.toString());
-        return Result.fail(WebConstant.Status.INTERNAL_SERVER_ERROR.getCode(), ex.getMessage());
+        return Result.fail(ErrorCode.INTERNAL_SERVER_ERROR.getCode(), ex.getMessage());
     }
 
     /**
@@ -82,7 +83,7 @@ public class BaseExceptionHandler {
     @ExceptionHandler(NullPointerException.class)
     public Result<?> handleNullPointerException(NullPointerException ex) {
         log.error("程序异常：{}" + ex.toString());
-        return Result.fail(WebConstant.Status.INTERNAL_SERVER_ERROR.getCode(), ex.getMessage());
+        return Result.fail(ErrorCode.INTERNAL_SERVER_ERROR.getCode(), ex.getMessage());
     }
 
     /**
@@ -100,6 +101,6 @@ public class BaseExceptionHandler {
         } else if (StringUtils.contains(ex.toString(), "InternalAuthenticationServiceException")) {
             message = "您输入的用户名不存在";
         }
-        return Result.fail(WebConstant.Status.INTERNAL_SERVER_ERROR.getCode(), message);
+        return Result.fail(ErrorCode.INTERNAL_SERVER_ERROR.getCode(), message);
     }
 }
