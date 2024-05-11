@@ -46,7 +46,6 @@
         <module>mate-starter-gray</module>
         <module>mate-starter-redis</module>
         <module>mate-starter-oss</module>
-        <module>mate-starter-kafka</module>
         <module>mate-starter-file</module>
         <module>mate-starter-cloud</module>
         <module>mate-starter-rule</module>
