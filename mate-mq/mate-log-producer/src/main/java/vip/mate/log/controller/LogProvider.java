@@ -1,12 +1,12 @@
 package vip.mate.log.controller;
 
+import com.wayne.mq.kafka.starter.constant.LogConstant;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vip.mate.core.kafka.constant.LogConstant;
 
 import java.util.function.Consumer;
 

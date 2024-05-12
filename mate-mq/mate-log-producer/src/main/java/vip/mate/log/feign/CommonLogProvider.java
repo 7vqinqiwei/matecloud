@@ -1,5 +1,6 @@
 package vip.mate.log.feign;
 
+import com.wayne.mq.kafka.starter.constant.LogConstant;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.cola.biz.Result;
 import vip.mate.core.common.dto.CommonLog;
-import vip.mate.core.kafka.constant.LogConstant;
 import vip.mate.core.log.feign.ICommonLogProvider;
 
 /**
