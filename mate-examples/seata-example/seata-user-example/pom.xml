@@ -26,8 +26,9 @@
             <artifactId>mate-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>vip.mate</groupId>
-            <artifactId>mate-starter-seata</artifactId>
+            <groupId>com.wayne.seata</groupId>
+            <artifactId>wayne-seata-stater</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
