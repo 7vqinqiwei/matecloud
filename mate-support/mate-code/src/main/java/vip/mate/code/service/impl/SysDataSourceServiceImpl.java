@@ -35,10 +35,10 @@ public class SysDataSourceServiceImpl extends ServiceImpl<SysDataSourceMapper, S
         String startDate = String.valueOf(query.get("startDate"));
         String endDate = String.valueOf(query.get("endDate"));
         LambdaQueryWrapper<SysDataSource> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        if (StrUtil.isNotBlank(startDate) && !startDate.equals("null")) {
+        if (StrUtil.isNotBlank(startDate) && !"null".equals(startDate)) {
             lambdaQueryWrapper.between(SysDataSource::getCreateTime, startDate, endDate);
         }
-        if (StrUtil.isNotBlank(keyword) && !keyword.equals("null")) {
+        if (StrUtil.isNotBlank(keyword) && !"null".equals(keyword)) {
             lambdaQueryWrapper.like(SysDataSource::getName, keyword);
             lambdaQueryWrapper.or();
             lambdaQueryWrapper.like(SysDataSource::getId, keyword);

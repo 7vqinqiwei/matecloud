@@ -12,7 +12,7 @@ import java.util.Collection;
 public class StringUtil extends StringUtils {
 
     public static boolean isBlank(String string) {
-        return StringUtils.isEmpty(string) || string.equals("null");
+        return StringUtils.isEmpty(string) || "null".equals(string);
     }
 
     public static boolean isNotBlank(String string) {

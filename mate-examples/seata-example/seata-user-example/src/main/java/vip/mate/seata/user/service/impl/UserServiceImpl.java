@@ -12,7 +12,7 @@ import vip.mate.seata.user.service.IUserService;
  *
  * @author pangu
  */
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 }

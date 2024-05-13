@@ -50,7 +50,7 @@ public class TransmitLocalMDCAdapter implements MDCAdapter {
     }
 
     private Map<String, String> duplicateAndInsertNewMap(Map<String, String> oldMap) {
-        Map<String, String> newMap = Collections.synchronizedMap(new HashMap<>());
+        Map<String, String> newMap = Collections.synchronizedMap(new HashMap<>(16));
         if (oldMap != null) {
             // we don't want the parent thread modifying oldMap while we are
             // iterating over it
@@ -181,7 +181,7 @@ public class TransmitLocalMDCAdapter implements MDCAdapter {
     public void setContextMap(Map<String, String> contextMap) {
         lastOperation.set(WRITE_OPERATION);
 
-        Map<String, String> newMap = Collections.synchronizedMap(new HashMap<>());
+        Map<String, String> newMap = Collections.synchronizedMap(new HashMap<>(16));
         newMap.putAll(contextMap);
 
         // the newMap replaces the old one for serialisation's sake

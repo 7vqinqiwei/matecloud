@@ -40,7 +40,7 @@ public class StringUtil {
      * @return
      */
     public static boolean isEmpty(String input) {
-        return input == null || input.equals("") || input.matches(EMPTY_REGEX);
+        return input == null || "".equals(input) || input.matches(EMPTY_REGEX);
     }
 
     public static boolean isNotEmpty(String input) {
@@ -379,7 +379,7 @@ public class StringUtil {
         if (StringUtil.isNotEmpty(str)) {
             StringBuffer strbuff = new StringBuffer();
             for (String s : str.split("")) {
-                if (s.equals("%") || s.equals("_") || s.equals("\\")) {
+                if ("%".equals(s) || "_".equals(s) || "\\".equals(s)) {
                     strbuff.append("\\");
                 }
                 strbuff.append(s);

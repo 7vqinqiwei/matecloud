@@ -19,13 +19,14 @@ public class CamelUtil {
      * @param smallCamel 大小驼峰,是否为小驼峰
      * @return 转换后的字符串
      */
+    static Pattern UNDERLINE_CAMEL_PATTERN = Pattern.compile("([A-Za-z\\d]+)(_)?");
     public static String underline2Camel(String line, boolean smallCamel) {
         if (line == null || "".equals(line)) {
             return "";
         }
         StringBuffer sb = new StringBuffer();
-        Pattern pattern = Pattern.compile("([A-Za-z\\d]+)(_)?");
-        Matcher matcher = pattern.matcher(line);
+
+        Matcher matcher = UNDERLINE_CAMEL_PATTERN.matcher(line);
         while (matcher.find()) {
             String word = matcher.group();
             sb.append(smallCamel && matcher.start() == 0 ? Character.toLowerCase(word.charAt(0))
@@ -46,14 +47,15 @@ public class CamelUtil {
      * @param line 源字符串
      * @return 转换后的字符串
      */
+    static Pattern CAMEL_UNDERLINT_PATTERN = Pattern.compile("[A-Z]([a-z\\d]+)?");
     public static String camel2Underline(String line) {
         if (line == null || "".equals(line)) {
             return "";
         }
         line = String.valueOf(line.charAt(0)).toUpperCase().concat(line.substring(1));
         StringBuffer sb = new StringBuffer();
-        Pattern pattern = Pattern.compile("[A-Z]([a-z\\d]+)?");
-        Matcher matcher = pattern.matcher(line);
+
+        Matcher matcher = CAMEL_UNDERLINT_PATTERN.matcher(line);
         while (matcher.find()) {
             String word = matcher.group();
             sb.append(word.toUpperCase());
@@ -69,7 +71,7 @@ public class CamelUtil {
      * @return 转换后的Map
      */
     public static Map<String, Object> getUnderline2CamelMap(Map<String, Object> map) {
-        Map<String, Object> newMap = new HashMap<>();
+        Map<String, Object> newMap = new HashMap<>(16);
         for (String key : map.keySet()) {
             String camel = underline2Camel(key, true);
             //存在 " " 转换为""
@@ -91,7 +93,7 @@ public class CamelUtil {
      * @return 转换后的Map
      */
     public static Map<String, Object> getCamel2UnderlineMap(Map<String, Object> map) {
-        Map<String, Object> newMap = new HashMap<>();
+        Map<String, Object> newMap = new HashMap<>(16);
         for (String key : map.keySet()) {
             String camel = camel2Underline(key);
             newMap.put(camel, map.get(key));
@@ -107,7 +109,7 @@ public class CamelUtil {
      * @return 转换后的List套Map
      */
     public static List<Map<String, Object>> getUnderline2CamelList(List<Map<String, Object>> list) {
-        Map<String, Object> newMap = new HashMap<>();
+        Map<String, Object> newMap = new HashMap<>(16);
         List<Map<String, Object>> returnList = new ArrayList<>();
         for (Map<String, Object> map : list) {
             for (String key : map.keySet()) {
@@ -128,7 +130,7 @@ public class CamelUtil {
      * @return 转换后的List套Map
      */
     public static List<Map<String, Object>> getCamel2UnderlineList(List<Map<String, Object>> list) {
-        Map<String, Object> newMap = new HashMap<>();
+        Map<String, Object> newMap = new HashMap<>(16);
         List<Map<String, Object>> returnList = new ArrayList<>();
         for (Map<String, Object> map : list) {
             for (String key : map.keySet()) {

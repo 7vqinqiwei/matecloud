@@ -20,7 +20,7 @@ public class NumberUtil {
     }
 
     public static int stoi(String string, int defaultValue) {
-        if ((string == null) || (string.equalsIgnoreCase("") || (string.equals("null")))) {
+        if ((string == null) || ("".equalsIgnoreCase(string) || ("null".equals(string)))) {
             return defaultValue;
         }
         int id;
@@ -41,7 +41,7 @@ public class NumberUtil {
     }
 
     public static long stol(String string, long defaultValue) {
-        if ((string == null) || (string.equalsIgnoreCase(""))) {
+        if ((string == null) || ("".equalsIgnoreCase(string))) {
             return defaultValue;
         }
         long ret;
@@ -63,7 +63,7 @@ public class NumberUtil {
     }
 
     public static double stod(String string, double defaultValue) {
-        if ((string == null) || (string.equalsIgnoreCase(""))) {
+        if ((string == null) || ("".equalsIgnoreCase(string))) {
             return defaultValue;
         }
         double ret;
