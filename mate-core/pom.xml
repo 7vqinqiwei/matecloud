@@ -49,7 +49,6 @@
         <module>mate-starter-cloud</module>
         <module>mate-starter-rule</module>
         <module>mate-starter-sentinel</module>
-        <module>mate-starter-prometheus</module>
         <module>mate-starter-mongodb</module>
         <module>mate-starter-rabbit</module>
         <module>mate-starter-mybatis</module>
