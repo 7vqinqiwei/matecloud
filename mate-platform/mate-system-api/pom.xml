@@ -28,8 +28,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>vip.mate</groupId>
-            <artifactId>mate-starter-file</artifactId>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

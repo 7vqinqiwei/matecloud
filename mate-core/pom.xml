@@ -50,7 +50,6 @@
         <module>mate-starter-rule</module>
         <module>mate-starter-sentinel</module>
         <module>mate-starter-mongodb</module>
-        <module>mate-starter-rabbit</module>
         <module>mate-starter-mybatis</module>
         <module>mate-starter-validator</module>
         <module>mate-starter-swagger</module>
