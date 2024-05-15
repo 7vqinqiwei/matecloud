@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import vip.mate.component.entity.SysConfig;
 import vip.mate.component.mapper.SysConfigMapper;
 import vip.mate.component.service.ISysConfigService;
-import vip.mate.core.common.constant.ComponentConstant;
+import com.wayne.oss.aws.starter.core.ComponentConstant;
 import vip.mate.core.common.util.StringUtil;
 import com.wayne.oss.aws.starter.props.OssProperties;
 import vip.mate.core.redis.core.RedisService;

@@ -15,7 +15,7 @@ import vip.mate.component.entity.SysAttachment;
 import vip.mate.component.mapper.SysAttachmentMapper;
 import vip.mate.component.service.ISysAttachmentService;
 import com.alibaba.cola.biz.Result;
-import vip.mate.core.common.constant.ComponentConstant;
+import com.wayne.oss.aws.starter.core.ComponentConstant;
 import vip.mate.core.common.util.StringPool;
 import vip.mate.core.common.util.StringUtil;
 import vip.mate.core.database.entity.Search;
