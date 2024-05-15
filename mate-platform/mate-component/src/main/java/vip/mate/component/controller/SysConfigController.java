@@ -13,7 +13,7 @@ import vip.mate.component.service.ISysConfigService;
 import vip.mate.core.auth.annotation.PreAuth;
 import com.alibaba.cola.biz.Result;
 import vip.mate.core.log.annotation.Log;
-import vip.mate.core.oss.props.OssProperties;
+import com.wayne.oss.aws.starter.props.OssProperties;
 import vip.mate.core.web.controller.BaseController;
 
 import javax.validation.Valid;

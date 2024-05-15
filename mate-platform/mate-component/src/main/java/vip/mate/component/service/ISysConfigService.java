@@ -2,7 +2,7 @@ package vip.mate.component.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import vip.mate.component.entity.SysConfig;
-import vip.mate.core.oss.props.OssProperties;
+import com.wayne.oss.aws.starter.props.OssProperties;
 
 /**
  * <p>

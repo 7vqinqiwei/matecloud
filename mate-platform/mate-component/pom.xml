@@ -29,8 +29,9 @@
             <artifactId>mate-starter-redis</artifactId>
         </dependency>
         <dependency>
-            <groupId>vip.mate</groupId>
-            <artifactId>mate-starter-oss</artifactId>
+            <groupId>com.wayne.oss</groupId>
+            <artifactId>wayne-oss-aws-starter</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>vip.mate</groupId>

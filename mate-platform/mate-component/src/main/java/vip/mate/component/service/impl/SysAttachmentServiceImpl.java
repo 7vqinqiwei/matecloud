@@ -20,8 +20,8 @@ import vip.mate.core.common.util.StringPool;
 import vip.mate.core.common.util.StringUtil;
 import vip.mate.core.database.entity.Search;
 import vip.mate.core.database.util.PageUtil;
-import vip.mate.core.oss.core.OssTemplate;
-import vip.mate.core.oss.props.OssProperties;
+import com.wayne.oss.aws.starter.core.OssTemplate;
+import com.wayne.oss.aws.starter.props.OssProperties;
 import vip.mate.core.web.util.OssUtil;
 
 import java.util.HashMap;

@@ -12,7 +12,7 @@ import vip.mate.component.mapper.SysConfigMapper;
 import vip.mate.component.service.ISysConfigService;
 import vip.mate.core.common.constant.ComponentConstant;
 import vip.mate.core.common.util.StringUtil;
-import vip.mate.core.oss.props.OssProperties;
+import com.wayne.oss.aws.starter.props.OssProperties;
 import vip.mate.core.redis.core.RedisService;
 
 import java.util.List;
