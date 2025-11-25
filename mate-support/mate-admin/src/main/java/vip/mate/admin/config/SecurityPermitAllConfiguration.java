@@ -57,7 +57,7 @@ public class SecurityPermitAllConfiguration extends WebSecurityConfigurerAdapter
 	public NacosWatch nacosWatch(NacosServiceManager nacosServiceManager,
 	                             NacosDiscoveryProperties properties,
 	                             ObjectProvider<ThreadPoolTaskScheduler> taskScheduler) {
-		return new NacosWatch(nacosServiceManager, properties, taskScheduler);
+		return new NacosWatch(nacosServiceManager, properties);
 	}
 
 //	@Bean
