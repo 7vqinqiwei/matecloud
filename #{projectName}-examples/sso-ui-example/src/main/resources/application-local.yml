@@ -1,0 +1,19 @@
+server:
+  port: 32001
+spring:
+  application:
+    name: @artifactId@
+  #数据源配置
+  datasource:
+    url: ${#{projectName}.datasource.url}
+    username: ${#{projectName}.datasource.username}
+    password: ${#{projectName}.datasource.password}
+security:
+  oauth2:
+    client:
+      client-id: #{projectName}
+      client-secret: #{projectName}_secret
+      access-token-uri: http://127.0.0.1:20001/oauth/token
+      user-authorization-uri: http://127.0.0.1:20001/oauth/authorize
+    resource:
+      token-info-uri: http://127.0.0.1:20001/oauth/check_token

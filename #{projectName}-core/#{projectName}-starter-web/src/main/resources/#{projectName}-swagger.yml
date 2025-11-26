@@ -1,0 +1,34 @@
+#Swagger属性配置
+#{projectName}:
+  swagger:
+    enable: false
+    title: #{ProjectName}CLoud文档管理中心
+    description: #{ProjectName}Cloud文档管理
+    license: Powered by #{ProjectName}Cloud
+    service-url: https://#{projectName}.com
+    contact-name: #{version}
+    contact-url: https://#{projectName}.com/#/docs
+    contact-email:
+# knife4j配置
+knife4j:
+  enable: ${#{projectName}.swagger.enable}
+  # 开启生产环境屏蔽
+  production: false
+#  basic:
+#    enable: true
+#    username: admin
+#    password: 123456
+  setting:
+    # 是否不显示Knife4j默认的footer，默认为true(显示)
+    enableFooter: false
+    # 是否自定义Footer，默认为false(非自定义)
+    enableFooterCustom: true
+    # 自定义Footer内容,支持Markdown语法
+    footerCustomContent: Apache License 2.0 | Copyright -[]()
+    enableHomeCustom: true
+    homeCustomLocation: classpath:#{projectName}-swagger.md
+# 默认路径匹配策略切换回ant_path_matcher
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

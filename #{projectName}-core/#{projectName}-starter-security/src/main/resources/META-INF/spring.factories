@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  #{groupId}.core.security.config.IgnoreUrlPropsConfiguration,\
+  #{groupId}.core.security.service.PermissionService,\
+  #{groupId}.core.security.config.MineSecurityConfig
+
+
+
+
