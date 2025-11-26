@@ -1,0 +1,44 @@
+
+package ${package.ServiceImpl};
+
+import #{groupId}.core.database.entity.Search;
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import #{groupId}.core.common.util.StringUtil;
+import #{groupId}.core.database.util.PageUtil;
+
+/**
+ * <p>
+ * $!{table.comment} 服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+@Service
+#if(${kotlin})
+open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperName}, ${entity}>(), ${table.serviceName} {
+
+}
+#else
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+		@Override
+		public IPage<${entity}> listPage(Search search) {
+			LambdaQueryWrapper<${entity}> queryWrapper = new LambdaQueryWrapper<>();
+			if (StringUtil.isNotBlank(search.getStartDate())) {
+				queryWrapper.between(${entity}::getCreateTime, search.getStartDate(), search.getEndDate());
+			}
+			if (StringUtil.isNotBlank(search.getKeyword())) {
+				queryWrapper.like(${entity}::getId, search.getKeyword());
+			}
+			queryWrapper.orderByDesc(${entity}::getCreateTime);
+			return this.baseMapper.selectPage(PageUtil.getPage(search), queryWrapper);
+		}
+}
+#end

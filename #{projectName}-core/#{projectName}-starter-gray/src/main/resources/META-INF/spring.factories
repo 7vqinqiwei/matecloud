@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  #{groupId}.core.gray.config.GrayConfig,\
+  #{groupId}.core.gray.context.VersionContextHolderFilter
+
+

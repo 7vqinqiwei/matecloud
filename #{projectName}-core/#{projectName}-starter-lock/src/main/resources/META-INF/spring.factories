@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  #{groupId}.core.lock.config.RedissonConfiguration,\
+  #{groupId}.core.lock.aspect.DistributedLockHandler
+
+

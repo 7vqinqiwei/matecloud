@@ -2,8 +2,8 @@ version: '3.0'
 services:
   nacos:
     image: nacos/nacos-server:2.0.0
-    hostname: "matecloud"
-    container_name: "mate-nacos"
+    hostname: "#{projectName}cloud"
+    container_name: "#{projectName}-nacos"
     env_file:
       - ./env/nacos-standlone-mysql.env
     volumes:
@@ -14,13 +14,13 @@ services:
       - 9848:9848
       - 9849:9849
     networks:
-      - mate_net
+      - #{projectName}_net
     depends_on:
       - mysql
     restart: on-failure
 
   mysql:
-    container_name: mate-mysql
+    container_name: #{projectName}-mysql
     image: mysql:8.0.21
     security_opt:
       - seccomp:unconfined
@@ -35,7 +35,7 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - mate_net
+      - #{projectName}_net
     restart: always
     command:
       # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
@@ -47,12 +47,12 @@ services:
 
   redis:
     image: redis:latest
-    container_name: mate-redis
+    container_name: #{projectName}-redis
     restart: always
     ports:
       - 6379:6379
     networks:
-      - mate_net
+      - #{projectName}_net
     volumes:
       - ./redis/conf/redis.conf:/etc/redis/redis.conf:rw
       - ./redis/data:/data:rw
@@ -60,15 +60,15 @@ services:
       redis-server /etc/redis/redis.conf --appendonly yes --requirepass 123456
 
   sentinel:
-    image: matecloud/sentinel-dashboard:1.8.1
-    container_name: "mate-sentinel"
+    image: #{projectName}cloud/sentinel-dashboard:1.8.1
+    container_name: "#{projectName}-sentinel"
     environment:
       - TZ=Asia/Shanghai
       - JAVA_OPTS= -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dsentinel.dashboard.auth.username=sentinel -Dsentinel.dashboard.auth.password=sentinel -Dserver.servlet.session.timeout=7200
     ports:
       - 8088:8080
     networks:
-      - mate_net
+      - #{projectName}_net
     restart: on-failure
 
   rmqnamesrv:
@@ -80,7 +80,7 @@ services:
       - ./rmqnamesrv/data/logs:/opt/logs
       - ./rmqnamesrv/data/store:/opt/store
     networks:
-      mate_net:
+      #{projectName}_net:
         aliases:
           - rmqnamesrv
     depends_on:
@@ -105,7 +105,7 @@ services:
     depends_on:
       - rmqnamesrv
     networks:
-      mate_net:
+      #{projectName}_net:
         aliases:
           - rmqbroker
     restart: always
@@ -120,11 +120,11 @@ services:
     depends_on:
       - rmqnamesrv
     networks:
-      mate_net:
+      #{projectName}_net:
         aliases:
           - rmqconsole
     restart: always
 
 networks:
-  mate_net:
+  #{projectName}_net:
     driver: bridge

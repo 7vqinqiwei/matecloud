@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  #{groupId}.core.database.config.MybatisPlusConfiguration,\
+  #{groupId}.core.database.config.DruidConfiguration,\
+  #{groupId}.core.database.config.TenantConfiguration
+
+

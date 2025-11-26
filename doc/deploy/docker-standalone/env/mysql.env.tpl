@@ -1,0 +1,5 @@
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=${projectName}
+MYSQL_USER=root
+MYSQL_PASSWORD=root
+TZ=Asia/Shanghai

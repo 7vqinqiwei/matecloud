@@ -5,26 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>vip.mate</groupId>
-    <artifactId>matecloud</artifactId>
+    <groupId>#{groupId}</groupId>
+    <artifactId>#{projectName}cloud</artifactId>
     <packaging>pom</packaging>
-    <version>4.4.8</version>
+    <version>#{version}</version>
 
-    <name>matecloud</name>
-    <description>MateCloud - 基于Spring Cloud Alibaba实现的微服务架构</description>
+    <name>#{projectName}cloud</name>
+    <description>#{projectName}Cloud - 基于Spring Cloud Alibaba实现的微服务架构</description>
 
     <modules>
-        <module>mate-core</module>
-        <module>mate-gateway</module>
-        <module>mate-uaa</module>
-        <module>mate-support</module>
-        <module>mate-platform</module>
-        <module>mate-mq</module>
-        <module>mate-examples</module>
+        <module>#{projectName}-core</module>
+        <module>#{projectName}-gateway</module>
+        <module>#{projectName}-uaa</module>
+        <module>#{projectName}-support</module>
+        <module>#{projectName}-platform</module>
+        <module>#{projectName}-mq</module>
+        <module>#{projectName}-examples</module>
     </modules>
 
     <properties>
-        <matecloud.core.version>4.4.8</matecloud.core.version>
+        <#{projectName}cloud.core.version>#{version}</#{projectName}cloud.core.version>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -36,10 +36,10 @@
 
         <!-- 推荐使用Harbor -->
         <docker-maven-plugin.version>1.2.2</docker-maven-plugin.version>
-        <sonar.exclusions>mate-admin/**/*, mate-core/**/*</sonar.exclusions>
+        <sonar.exclusions>#{projectName}-admin/**/*, #{projectName}-core/**/*</sonar.exclusions>
         <docker.baseImage>openjdk:8-jre-alpine</docker.baseImage>
         <docker.volumes>/tmp</docker.volumes>
-        <docker.image.prefix>192.168.3.6:8080/matecloud</docker.image.prefix>
+        <docker.image.prefix>192.168.3.6:8080/#{projectName}cloud</docker.image.prefix>
         <docker.java.security.egd>-Djava.security.egd=file:/dev/./urandom</docker.java.security.egd>
         <docker.java.opts>-Xms128m -Xmx128m</docker.java.opts>
 
@@ -48,9 +48,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>vip.mate</groupId>
-                <artifactId>mate-starter-dependencies</artifactId>
-                <version>${matecloud.core.version}</version>
+                <groupId>#{groupId}</groupId>
+                <artifactId>#{projectName}-starter-dependencies</artifactId>
+                <version>${#{projectName}cloud.core.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -61,11 +61,11 @@
         <repository>
             <id>releases</id>
             <name>Release Repository</name>
-            <url>http://nexus.mate.vip/repository/maven-releases/</url>
+            <url>http://nexus.#{projectName}.vip/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
-            <url>http://nexus.mate.vip/repository/maven-snapshots/</url>
+            <url>http://nexus.#{projectName}.vip/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 

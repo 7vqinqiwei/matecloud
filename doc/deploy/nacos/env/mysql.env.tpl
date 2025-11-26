@@ -1,0 +1,4 @@
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=#{projectName}_nacos
+MYSQL_USER=nacos
+MYSQL_PASSWORD=nacos
