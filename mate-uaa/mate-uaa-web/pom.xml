@@ -1,21 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>mate-platform</artifactId>
         <groupId>vip.mate</groupId>
+        <artifactId>mate-uaa</artifactId>
         <version>4.7.8-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mate-component</artifactId>
+    <artifactId>mate-uaa-web</artifactId>
+    <packaging>jar</packaging>
+
+    <name>mate-uaa-web</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>vip.mate</groupId>
-            <artifactId>mate-component-api</artifactId>
+            <artifactId>mate-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>vip.mate</groupId>
+            <artifactId>mate-system-api</artifactId>
+        </dependency>
+        <!-- 此依赖加上后使用dubbo,注释后使用Feign -->
+        <!--        <dependency>-->
+        <!--            <groupId>vip.mate</groupId>-->
+        <!--            <artifactId>mate-starter-dubbo</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>vip.mate</groupId>
             <artifactId>mate-starter-cloud</artifactId>
@@ -25,16 +40,16 @@
             <artifactId>mate-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>vip.mate</groupId>
-            <artifactId>mate-starter-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>vip.mate</groupId>
-            <artifactId>mate-starter-oss</artifactId>
+            <groupId>com.github.whvcse</groupId>
+            <artifactId>easy-captcha</artifactId>
         </dependency>
         <dependency>
             <groupId>vip.mate</groupId>
             <artifactId>mate-starter-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
         </dependency>
     </dependencies>
 
@@ -50,6 +65,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

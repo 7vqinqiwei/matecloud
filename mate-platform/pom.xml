@@ -16,6 +16,8 @@
         <module>mate-system</module>
         <module>mate-component</module>
         <module>mate-component-api</module>
+        <module>mate-system-starter</module>
+        <module>mate-component-starter</module>
     </modules>
 
 

@@ -620,10 +620,10 @@ CREATE TABLE `mate_sys_route` (
 -- ----------------------------
 -- 初始化-系统路由表数据
 -- ----------------------------
-INSERT INTO `mate_sys_route` VALUES (1, '系统服务', '/mate-system/**', 'mate-system', 'mate-system', '0', NULL, NULL, '2020-10-18 22:59:02', '2021-09-23 14:13:21', '0', NULL);
-INSERT INTO `mate_sys_route` VALUES (2, '认证服务', '/mate-uaa/**', 'mate-uaa', 'mate-uaa', '0', NULL, NULL, '2020-10-18 15:14:13', '2021-09-23 14:13:36', '0', NULL);
-INSERT INTO `mate_sys_route` VALUES (3, '代码服务', '/mate-code/**', 'mate-code', 'mate-code', '0', NULL, NULL, '2020-10-18 20:21:25', '2021-09-23 14:13:31', '0', NULL);
-INSERT INTO `mate_sys_route` VALUES (4, '组件服务', '/mate-component/**', 'mate-component', 'mate-component', '0', NULL, NULL, '2020-10-18 20:22:42', '2021-09-23 14:13:27', '0', NULL);
+INSERT INTO `mate_sys_route` VALUES (1, '系统服务', '/mate-system/**', 'mate-system-starter', 'mate-system-starter', '0', NULL, NULL, '2020-10-18 22:59:02', '2021-09-23 14:13:21', '0', NULL);
+INSERT INTO `mate_sys_route` VALUES (2, '认证服务', '/mate-uaa/**', 'mate-uaa-starter', 'mate-uaa-starter', '0', NULL, NULL, '2020-10-18 15:14:13', '2021-09-23 14:13:36', '0', NULL);
+INSERT INTO `mate_sys_route` VALUES (3, '代码服务', '/mate-code/**', 'mate-code-starter', 'mate-code-starter', '0', NULL, NULL, '2020-10-18 20:21:25', '2021-09-23 14:13:31', '0', NULL);
+INSERT INTO `mate_sys_route` VALUES (4, '组件服务', '/mate-component/**', 'mate-component-starter', 'mate-component-starter', '0', NULL, NULL, '2020-10-18 20:22:42', '2021-09-23 14:13:27', '0', NULL);
 
 -- ----------------------------
 -- 13、系统黑名单表 mate_sys_blacklist

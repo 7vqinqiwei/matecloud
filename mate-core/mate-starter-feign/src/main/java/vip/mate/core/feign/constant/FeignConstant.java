@@ -18,12 +18,12 @@ public class FeignConstant {
     /**
      * 系统服务
      */
-    public final String MATE_CLOUD_SYSTEM = "mate-system";
+    public final String MATE_CLOUD_SYSTEM = "mate-system-starter";
 
     /**
      * 认证服务
      */
-    public final String MATE_CLOUD_UAA = "mate-uaa";
+    public final String MATE_CLOUD_UAA = "mate-uaa-starter";
 
     /**
      * 消息生产者
